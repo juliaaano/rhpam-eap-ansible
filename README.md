@@ -8,3 +8,7 @@ As known as the Workbench.
 ./users.sh
 ```
 
+Review the setup.properties file and run:
+```
+./setup.sh
+```

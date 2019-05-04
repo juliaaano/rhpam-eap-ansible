@@ -1,0 +1,13 @@
+set orgUberfireNioGitDir=${org.uberfire.nio.git.dir}
+set orgUberfireMetadataIndexDir=${org.uberfire.metadata.index.dir}
+set orgUberfireNioGitSshCertDir=${org.uberfire.nio.git.ssh.cert.dir}
+set orgGuvnorM2repoDir=${org.guvnor.m2repo.dir}
+
+embed-server --server-config=standalone-full.xml
+
+    /system-property=org.uberfire.nio.git.dir:add(value=$orgUberfireNioGitDir)
+    /system-property=org.uberfire.metadata.index.dir:add(value=$orgUberfireMetadataIndexDir)
+    /system-property=org.uberfire.nio.git.ssh.cert.dir:add(value=$orgUberfireNioGitSshCertDir)
+    /system-property=org.guvnor.m2repo.dir:add(value=$orgGuvnorM2repoDir)
+
+stop-embedded-server
