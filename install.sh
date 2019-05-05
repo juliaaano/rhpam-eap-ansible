@@ -8,10 +8,14 @@ JBOSS_EAP_ZIP=jboss-eap-7.2.0.zip
 JBOSS_EAP_DIR=./target/jboss-eap-7.2
 RHDM_SERVER_ZIP=rhdm-7.3.0-kie-server-ee8.zip
 
+MODE=${1:-online}
+
 mkdir -p $DOWNLOADS_DIR
 
-curl -o $DOWNLOADS_DIR/$JBOSS_EAP_ZIP $DOWNLOADS_URL/$JBOSS_EAP_ZIP
-curl -o $DOWNLOADS_DIR/$RHDM_SERVER_ZIP $DOWNLOADS_URL/$RHDM_SERVER_ZIP
+if [ $MODE != "offline" ]; then
+    curl -o $DOWNLOADS_DIR/$JBOSS_EAP_ZIP $DOWNLOADS_URL/$JBOSS_EAP_ZIP
+    curl -o $DOWNLOADS_DIR/$RHDM_SERVER_ZIP $DOWNLOADS_URL/$RHDM_SERVER_ZIP
+fi
 
 rm -rf ./target
 

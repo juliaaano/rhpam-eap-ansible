@@ -3,10 +3,21 @@
 As known as the KIE Server.
 
 ## Quick Start
-```
-./install.sh
-./users.sh
-```
+
+ Install JBoss EAP and RHDM Server:
+ ```
+ ./install.sh
+ ```
+
+ Install offline, without downloading files:
+ ```
+ ./install.sh offline
+ ```
+
+ Add 'kieserver' user:
+ ```
+ ./users.sh
+ ```
 
 Review the setup.properties file and run:
 ```
