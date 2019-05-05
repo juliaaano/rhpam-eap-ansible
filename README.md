@@ -12,3 +12,8 @@ Review the setup.properties file and run:
 ```
 ./setup.sh
 ```
+
+Start the server:
+```
+./run.sh
+```
