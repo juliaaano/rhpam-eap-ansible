@@ -24,6 +24,11 @@ Review the setup.properties file and run:
 ./setup.sh
 ```
 
+Create a keystore to keep the controller user's password:
+```
+keytool -importpassword -keystore sampleKeystore.jceks -storepass sampleStorepass -alias controllerUserAlias -keypass controllerUserKeypass -storetype JCEKS
+```
+
 Start the server:
 ```
 ./run.sh

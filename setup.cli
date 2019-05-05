@@ -1,8 +1,12 @@
 set orgKieServerId=${org.kie.server.id}
+set kieMavenSettingsCustom=${kie.maven.settings.custom}
 set orgKieServerController=${org.kie.server.controller}
 set orgKieServerControllerUser=${org.kie.server.controller.user}
 set orgKieServerControllerPwd=${org.kie.server.controller.pwd}
-set kieMavenSettingsCustom=${kie.maven.settings.custom}
+set kieKeystoreKeyStoreURL=${kie.keystore.keyStoreURL}
+set kieKeystoreKeyStorePwd=${kie.keystore.keyStorePwd}
+set kieKeystoreKeyCtrlAlias=${kie.keystore.key.ctrl.alias}
+set kieKeystoreKeyCtrlPwd=${kie.keystore.key.ctrl.pwd}
 
 embed-server --server-config=standalone-full.xml
 
@@ -10,9 +14,12 @@ embed-server --server-config=standalone-full.xml
     /system-property=org.optaplanner.server.ext.disabled:add(value="true")
     /system-property=org.kie.executor.disabled:add(value="true")
     /system-property=org.kie.server.id:add(value=$orgKieServerId)
+    /system-property=kie.maven.settings.custom:add(value=$kieMavenSettingsCustom)
     /system-property=org.kie.server.controller:add(value=$orgKieServerController)
     /system-property=org.kie.server.controller.user:add(value=$orgKieServerControllerUser)
-    /system-property=org.kie.server.controller.pwd:add(value=$orgKieServerControllerPwd)
-    /system-property=kie.maven.settings.custom:add(value=$kieMavenSettingsCustom)
+    /system-property=kie.keystore.keyStoreURL:add(value=$kieKeystoreKeyStoreURL)
+    /system-property=kie.keystore.keyStorePwd:add(value=$kieKeystoreKeyStorePwd)
+    /system-property=kie.keystore.key.ctrl.alias:add(value=$kieKeystoreKeyCtrlAlias)
+    /system-property=kie.keystore.key.ctrl.pwd:add(value=$kieKeystoreKeyCtrlPwd)
 
 stop-embedded-server
