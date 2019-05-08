@@ -9,10 +9,10 @@ As known as the KIE Server.
  ./install.sh
  ```
 
- Install offline, without downloading files:
- ```
- ./install.sh offline
- ```
+Apply patches:
+```
+./patch.sh
+```
 
  Add 'kieserver' user:
  ```
@@ -28,6 +28,13 @@ Start the server:
 ```
 ./run.sh
 ```
+
+## More options
+
+ Install offline, without downloading files:
+ ```
+ ./install.sh offline
+ ```
 
 Start the server with port offset (to avoid port conflict):
 ```
