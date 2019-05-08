@@ -9,9 +9,9 @@ Install JBoss EAP and RHDM Central:
 ./install.sh
 ```
 
-Install offline, without downloading files:
+Apply patches:
 ```
-./install.sh offline
+./patch.sh
 ```
 
 Add 'admin' and 'controller' users:
@@ -27,4 +27,11 @@ Review the setup.properties file and run:
 Start the server:
 ```
 ./run.sh
+```
+
+## More options
+
+Install offline, without downloading files:
+```
+./install.sh offline
 ```
