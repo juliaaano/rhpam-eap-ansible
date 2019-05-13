@@ -1,4 +1,5 @@
 set orgKieServerId=${org.kie.server.id}
+set orgKieServerMode=${org.kie.server.mode}
 set kieMavenSettingsCustom=${kie.maven.settings.custom}
 set orgKieServerController=${org.kie.server.controller}
 set orgKieServerControllerUser=${org.kie.server.controller.user}
@@ -14,6 +15,7 @@ embed-server --server-config=standalone-full.xml
     /system-property=org.optaplanner.server.ext.disabled:add(value="true")
     /system-property=org.kie.executor.disabled:add(value="true")
     /system-property=org.kie.server.id:add(value=$orgKieServerId)
+    /system-property=org.kie.server.mode:add(value=$orgKieServerMode)
     /system-property=kie.maven.settings.custom:add(value=$kieMavenSettingsCustom)
     /system-property=org.kie.server.controller:add(value=$orgKieServerController)
     /system-property=org.kie.server.controller.user:add(value=$orgKieServerControllerUser)
