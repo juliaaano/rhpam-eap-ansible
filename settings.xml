@@ -5,7 +5,7 @@
     <proxy>
       <id>example-proxy</id>
       <active>true</active>
-      <protocol>http</protocol>
+      <protocol>http</protocol> OR <protocol>https</protocol>
       <host>proxyHost</host>
       <port>3128</port>
       <username>username</username>
@@ -16,8 +16,8 @@
   <!-- <servers>
     <server>
       <id>rhdm</id>
-      <username>controllerUser</username>
-      <password>password</password>
+      <username>${env.MAVEN_USR}</username>
+      <password>${env.MAVEN_PWD}</password>
     </server>
   </servers> -->
 
@@ -30,9 +30,11 @@
           <url>http://localhost:8080/decision-central/maven2/</url>
           <releases>
             <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
           </releases>
           <snapshots>
             <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
           </snapshots>
         </repository>
       </repositories>
@@ -44,4 +46,3 @@
   </activeProfiles> -->
 
 </settings>
-
