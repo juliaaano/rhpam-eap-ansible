@@ -5,7 +5,7 @@ set -euxo pipefail
 DOWNLOADS_DIR=./downloads
 DOWNLOADS_URL=https://s3-ap-southeast-2.amazonaws.com/public.juliaaano
 JBOSS_EAP_ZIP=jboss-eap-7.2.0.zip
-RHDM_CENTRAL_ZIP=rhdm-7.3.0-decision-central-eap7-deployable.zip
+RHDM_CENTRAL_ZIP=rhdm-7.3.1-decision-central-eap7-deployable.zip
 
 MODE=${1:-online}
 
