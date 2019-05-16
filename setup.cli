@@ -3,9 +3,11 @@ set orgUberfireMetadataIndexDir=${org.uberfire.metadata.index.dir}
 set orgUberfireNioGitSshCertDir=${org.uberfire.nio.git.ssh.cert.dir}
 set orgGuvnorM2repoDir=${org.guvnor.m2repo.dir}
 set kieMavenSettingsCustom=${kie.maven.settings.custom}
+set orgUberfireNioGitHooks=${org.uberfire.nio.git.hooks}
 
 embed-server --server-config=standalone-full.xml
 
+    /system-property=org.uberfire.nio.git.hooks:add(value=$orgUberfireNioGitHooks)
     /system-property=org.uberfire.nio.git.dir:add(value=$orgUberfireNioGitDir)
     /system-property=org.uberfire.metadata.index.dir:add(value=$orgUberfireMetadataIndexDir)
     /system-property=org.uberfire.nio.git.ssh.cert.dir:add(value=$orgUberfireNioGitSshCertDir)
