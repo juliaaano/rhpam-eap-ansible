@@ -2,6 +2,8 @@
 
 As known as the KIE Server.
 
+For Decision Central see https://github.com/juliaaano/rhdm-central.
+
 ## Quick Start
 
  Install JBoss EAP and RHDM Server:
