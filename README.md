@@ -2,6 +2,8 @@
 
 As known as the Workbench.
 
+For Decision Server see https://github.com/juliaaano/rhdm-server.
+
 ## Quick Start
 
 Install JBoss EAP and RHDM Central:
