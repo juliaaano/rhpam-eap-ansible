@@ -21,6 +21,15 @@
     </server>
   </servers> -->
 
+  <!-- <mirrors>
+    <mirror>
+      <id>central-mirror</id>
+      <name>Maven Central Mirror</name>
+      <url>my-proxy-repository-url</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors> -->
+
   <profiles>
 
     <!-- Configure the JBoss Enterprise Maven repository -->
