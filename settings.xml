@@ -21,7 +21,18 @@
     </server>
   </servers> -->
 
-  <!-- <profiles>
+  <!-- <mirrors>
+    <mirror>
+      <id>central-mirror</id>
+      <name>Maven Central Mirror</name>
+      <url>my-proxy-repository-url</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors> -->
+
+  <profiles>
+
+    <!-- Configure the Decision Central (Workbench) Maven repository -->
     <profile>
       <id>rhdm</id>
       <repositories>
@@ -39,10 +50,62 @@
         </repository>
       </repositories>
     </profile>
-  </profiles> -->
 
-  <!-- <activeProfiles>
-    <activeProfile>rhdm</activeProfile>
-  </activeProfiles> -->
+    <!-- Configure the Local Releases Maven repository -->
+    <profile>
+      <id>local-releases</id>
+      <repositories>
+        <repository>
+          <id>local-releases</id>
+          <url>http://localhost:8080/decision-central/maven2/</url>
+          <!-- <url>my-local-hosted-repository-url</url> -->
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+
+    <!-- Configure the JBoss Enterprise Maven repository -->
+    <profile>
+      <id>jboss-enterprise-maven-repository</id>
+      <repositories>
+        <repository>
+          <id>jboss-enterprise-maven-repository</id>
+          <url>https://maven.repository.redhat.com/ga/</url>
+          <!-- <url>my-proxy-repository-url</url> -->
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>jboss-enterprise-maven-repository</id>
+          <url>https://maven.repository.redhat.com/ga/</url>
+          <!-- <url>my-proxy-repository-url</url> -->
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+  </profiles>
+
+  <activeProfiles>
+    <!-- <activeProfile>rhdm</activeProfile> -->
+    <!-- <activeProfile>local-releases</activeProfile> -->
+    <activeProfile>jboss-enterprise-maven-repository</activeProfile>
+  </activeProfiles>
 
 </settings>
