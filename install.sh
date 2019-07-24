@@ -6,7 +6,7 @@ DOWNLOADS_DIR=./downloads
 DOWNLOADS_URL=https://s3-ap-southeast-2.amazonaws.com/public.juliaaano
 JBOSS_EAP_ZIP=jboss-eap-7.2.0.zip
 JBOSS_EAP_DIR=./target/jboss-eap-7.2
-RHDM_SERVER_ZIP=rhdm-7.3.1-kie-server-ee8.zip
+RHDM_SERVER_ZIP=rhdm-7.4.0-kie-server-ee8.zip
 
 MODE=${1:-online}
 
