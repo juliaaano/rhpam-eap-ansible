@@ -2,7 +2,7 @@
 
 As known as the KIE Server.
 
-For Decision Central see https://github.com/juliaaano/rhdm-central.
+For Decision Central see [rhdm-central](../rhdm-central).
 
 ## Quick Start
 
