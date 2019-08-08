@@ -2,7 +2,7 @@
 
 As known as the Workbench.
 
-For Decision Server see https://github.com/juliaaano/rhdm-server.
+For Decision Server see [rhdm-server](../rhdm-server).
 
 ## Quick Start
 
