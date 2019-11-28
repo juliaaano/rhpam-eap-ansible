@@ -1,15 +1,16 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -uxo pipefail
 
-JBOSS_HOME=./target/jboss-eap-7.2
-ADMIN_USR=${1:-adminUser}
-ADMIN_PWD=${2:-password}
-CONTROLLER_USR=${3:-controllerUser}
-CONTROLLER_PWD=${4:-password}
+source config.sh
 
-$JBOSS_HOME/bin/add-user.sh -a --user $ADMIN_USR --password $ADMIN_PWD --role admin
-$JBOSS_HOME/bin/add-user.sh -a --user $CONTROLLER_USR --password $CONTROLLER_PWD --role rest-all
+JBOSS_EAP_HOME=${1:-$JBOSS_EAP_HOME}
+ADMIN_USR=${1:-$ADMIN_USR}
+ADMIN_PWD=${2:-$ADMIN_PWD}
+CONTROLLER_USR=${3:-$CONTROLLER_USR}
+CONTROLLER_PWD=${4:-$CONTROLLER_PWD}
 
-echo "end of script"
+$JBOSS_EAP_HOME/bin/add-user.sh -a --user $ADMIN_USR --password $ADMIN_PWD --role admin
+$JBOSS_EAP_HOME/bin/add-user.sh -a --user $CONTROLLER_USR --password $CONTROLLER_PWD --role rest-all
 
+echo "end of script" > /dev/null

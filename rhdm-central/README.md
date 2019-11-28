@@ -6,6 +6,11 @@ For Decision Server see [rhdm-server](../rhdm-server).
 
 ## Quick Start
 
+Download software:
+```
+./download.sh
+```
+
 Install JBoss EAP and RHDM Central:
 ```
 ./install.sh
@@ -31,12 +36,9 @@ Start the server:
 ./run.sh
 ```
 
-## More options
+## Configuration
 
-Install offline, without downloading files:
-```
-./install.sh offline
-```
+Check the configuration in the **config.sh** file.
 
 ## Run as a service
 
@@ -54,3 +56,4 @@ sudo chmod +x /etc/init.d/jboss-eap-rhel.sh
 sudo chkconfig --add jboss-eap-rhel.sh
 sudo chkconfig jboss-eap-rhel.sh on
 sudo service jboss-eap-rhel start
+```

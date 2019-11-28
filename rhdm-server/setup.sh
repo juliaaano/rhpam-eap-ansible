@@ -1,9 +1,11 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -uxo pipefail
 
-JBOSS_HOME=./target/jboss-eap-7.2
+source config.sh
 
-$JBOSS_HOME/bin/jboss-cli.sh --properties=setup.properties --file=setup.cli
+JBOSS_EAP_HOME=${1:-$JBOSS_EAP_HOME}
 
-SUCCESS="end of script"
+$JBOSS_EAP_HOME/bin/jboss-cli.sh --properties=setup.properties --file=setup.cli
+
+echo "end of script" > /dev/null

@@ -6,6 +6,11 @@ For Decision Central see [rhdm-central](../rhdm-central).
 
 ## Quick Start
 
+Download software:
+```
+./download.sh
+```
+
  Install JBoss EAP and RHDM Server:
  ```
  ./install.sh
@@ -36,17 +41,14 @@ Start the server:
 ./run.sh
 ```
 
-## More options
-
- Install offline, without downloading files:
- ```
- ./install.sh offline
- ```
-
 Start the server with port offset (to avoid port conflict):
 ```
 ./run.sh -Djboss.socket.binding.port-offset=100
 ```
+
+## Configuration
+
+Check the configuration in the **config.sh** file.
 
 ## Run as a service
 

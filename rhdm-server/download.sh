@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -uxo pipefail
+
+source config.sh
+
+DOWNLOADS_DIR=${1:-$DOWNLOADS_DIR}
+DOWNLOADS_URL=${2:-$DOWNLOADS_URL}
+RHDM_SERVER_ZIP=${3:-$RHDM_SERVER_ZIP}
+JBOSS_EAP_ZIP=${4:-$JBOSS_EAP_ZIP}
+JBOSS_EAP_PATCH_ZIP=${4:-$JBOSS_EAP_PATCH_ZIP}
+
+mkdir -p ${DOWNLOADS_DIR}
+
+for patch in ${JBOSS_EAP_PATCH_ZIP[@]}
+do
+    curl -o $DOWNLOADS_DIR/$patch $DOWNLOADS_URL/$patch
+done
+
+curl -o $DOWNLOADS_DIR/$JBOSS_EAP_ZIP $DOWNLOADS_URL/$JBOSS_EAP_ZIP
+curl -o $DOWNLOADS_DIR/$RHDM_SERVER_ZIP $DOWNLOADS_URL/$RHDM_SERVER_ZIP
+
+echo "end of script" > /dev/null

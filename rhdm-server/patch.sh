@@ -1,24 +1,17 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -uxo pipefail
 
-PATCH_DIR=$(pwd)/downloads
-PATCH_URL=https://s3-ap-southeast-2.amazonaws.com/public.juliaaano
-JBOSS_PATCH01_ZIP=jboss-eap-7.2.1-patch.zip
-JBOSS_PATCH02_ZIP=jboss-eap-7.2.2-patch.zip
-JBOSS_DIR=./target/jboss-eap-7.2
+source config.sh
 
-MODE=${1:-online}
+PATCH_DIR=${1:-$DOWNLOADS_DIR}
+PATCH_URL=${2:-$DOWNLOADS_URL}
+JBOSS_EAP_PATCH_ZIP=${3:-$JBOSS_EAP_PATCH_ZIP}
+JBOSS_EAP_HOME=${4:-$JBOSS_EAP_HOME}
 
-mkdir -p $PATCH_DIR
+for patch in ${JBOSS_EAP_PATCH_ZIP[@]}
+do
+    $JBOSS_EAP_HOME/bin/jboss-cli.sh --command="patch apply $PATCH_DIR/$patch"
+done
 
-if [ $MODE != "offline" ]; then
-    curl -o $PATCH_DIR/$JBOSS_PATCH01_ZIP $PATCH_URL/$JBOSS_PATCH01_ZIP
-    curl -o $PATCH_DIR/$JBOSS_PATCH02_ZIP $PATCH_URL/$JBOSS_PATCH02_ZIP
-fi
-
-$JBOSS_DIR/bin/jboss-cli.sh --command="patch apply $PATCH_DIR/$JBOSS_PATCH01_ZIP"
-$JBOSS_DIR/bin/jboss-cli.sh --command="patch apply $PATCH_DIR/$JBOSS_PATCH02_ZIP"
-
-echo "end of script"
-
+echo "end of script" > /dev/null
