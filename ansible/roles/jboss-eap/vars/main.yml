@@ -1,0 +1,2 @@
+---
+jboss_eap_home: "{{ jboss_eap_base }}/{{ jboss_eap_dir }}"

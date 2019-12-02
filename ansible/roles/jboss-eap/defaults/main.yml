@@ -1,0 +1,3 @@
+---
+jboss_eap_temp: /tmp/jboss-eap
+jboss_eap_base: "{{ ansible_env['HOME'] }}"

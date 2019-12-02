@@ -1,0 +1,6 @@
+---
+# This playbook installs Red Hat Decision Manager.
+
+- hosts: all
+  roles:
+    - jboss-eap

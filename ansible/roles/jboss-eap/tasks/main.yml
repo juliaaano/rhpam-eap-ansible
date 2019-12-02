@@ -1,0 +1,6 @@
+---
+- name: install JBoss EAP
+  include_tasks: install.yml
+
+- name: patch JBoss EAP
+  include_tasks: patch.yml

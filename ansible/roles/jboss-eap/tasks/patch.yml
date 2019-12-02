@@ -1,0 +1,15 @@
+---
+- name: create temp installation directory
+  file:
+    path: "{{ jboss_eap_temp }}"
+    state: directory
+
+- name: download JBoss EAP patches
+  get_url:
+    url: "{{ software_repository_url }}/{{ item }}"
+    dest: "{{ jboss_eap_temp }}/{{ item }}"
+  loop: "{{ jboss_eap_patch_zip }}"
+
+- name: apply JBoss EAP patches
+  command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --command='patch apply {{ jboss_eap_temp }}/{{ item }}'"
+  loop: "{{ jboss_eap_patch_zip }}"
