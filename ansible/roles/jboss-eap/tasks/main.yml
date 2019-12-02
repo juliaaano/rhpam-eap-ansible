@@ -4,3 +4,7 @@
 
 - name: patch JBoss EAP
   include_tasks: patch.yml
+
+- name: configuring JBoss EAP to run as a service
+  include_tasks: service.yml
+  tags: service

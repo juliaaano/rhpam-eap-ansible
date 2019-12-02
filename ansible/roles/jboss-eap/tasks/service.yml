@@ -1,0 +1,30 @@
+---
+# RHEL 7 tested, run JBoss EAP as a service.
+
+- name: create jboss-eap.conf
+  template:
+    src: jboss-eap.conf.j2
+    dest: /etc/default/jboss-eap.conf
+  become: yes
+
+- name: copy jboss-eap-rhel.sh
+  copy:
+    src: "{{ jboss_eap_home }}/bin/init.d/jboss-eap-rhel.sh"
+    dest: /etc/init.d/jboss-eap-rhel.sh
+    mode: +x
+    remote_src: yes
+  become: yes
+
+- name: add chkconfig service
+  command: "chkconfig --add jboss-eap-rhel.sh"
+  become: yes
+
+- name: start service jboss-eap-rhel
+  service:
+    name: jboss-eap-rhel
+    state: started
+  become: yes
+
+- name: turn on chkconfig service auto start
+  command: "chkconfig jboss-eap-rhel.sh on"
+  become: yes
