@@ -56,7 +56,7 @@ Check the configuration in the **config.sh** file.
 
 ```
 export JBOSS_HOME=/home/ec2-user/rhdm-server/target/jboss-eap-7.2
-echo "JBOSS_HOME=\"${JBOSS_HOME}"" >> jboss-eap.conf
+echo "JBOSS_HOME=\"${JBOSS_HOME}" >> jboss-eap.conf
 echo "JBOSS_USER=ec2-user" >> jboss-eap.conf
 echo "JBOSS_CONFIG=standalone-full.xml" >> jboss-eap.conf
 echo "JBOSS_OPTS=\"-b 0.0.0.0\"" >> jboss-eap.conf

@@ -1,0 +1,16 @@
+---
+- name: add the kieserver user
+  command: "{{ jboss_eap_home }}/bin/add-user.sh -a --user {{ rhdm_kieserver_usr }} --password {{ rhdm_kieserver_pwd }} --role kie-server"
+
+- name: copy settings.xml
+  template:
+    src: settings.xml.j2
+    dest: "{{ kie_maven_settings_custom }}"
+
+- name: copy setup.cli
+  template:
+    src: setup.cli.j2
+    dest: "{{ rhdm_server_temp }}/setup.cli"
+
+- name: run setup.cli JBoss configuration
+  command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --file={{ rhdm_server_temp }}/setup.cli"

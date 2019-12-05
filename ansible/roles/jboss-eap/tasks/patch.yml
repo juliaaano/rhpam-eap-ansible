@@ -1,9 +1,4 @@
 ---
-- name: create temp installation directory
-  file:
-    path: "{{ jboss_eap_temp }}"
-    state: directory
-
 - name: download JBoss EAP patches
   get_url:
     url: "{{ software_repository_url }}/{{ item }}"

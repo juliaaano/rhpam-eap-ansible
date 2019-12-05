@@ -1,0 +1,8 @@
+---
+rhdm_server_temp: /tmp/rhdm-server
+
+rhdm_kieserver_usr: kieserver
+rhdm_kieserver_pwd: kieserver
+
+org_kie_server_id: kieserver-default
+kie_maven_settings_custom: "{{ ansible_env['HOME'] }}/settings.xml"

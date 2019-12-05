@@ -1,10 +1,17 @@
 ---
+- name: create temp installation directory
+  file:
+    path: "{{ jboss_eap_temp }}"
+    state: directory
+
 - name: install JBoss EAP
   include_tasks: install.yml
+  tags: jboss-install
 
 - name: patch JBoss EAP
   include_tasks: patch.yml
+  tags: jboss-patch
 
-- name: configuring JBoss EAP to run as a service
+- name: configure JBoss EAP to run as a service
   include_tasks: service.yml
-  tags: service
+  tags: jboss-service

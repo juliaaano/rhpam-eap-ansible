@@ -1,0 +1,28 @@
+---
+- name: download RHDM Server
+  get_url:
+    url: "{{ software_repository_url }}/{{ rhdm_server_zip }}"
+    dest: "{{ rhdm_server_temp }}/{{ rhdm_server_zip }}"
+
+- name: extract RHDM server
+  unarchive:
+    src: "{{ rhdm_server_temp }}/{{ rhdm_server_zip }}"
+    dest: "{{ rhdm_server_temp }}"
+    remote_src: yes
+
+- name: copy SecurityPolicy to JBoss EAP
+  copy:
+    src: "{{ rhdm_server_temp }}/SecurityPolicy/"
+    dest: "{{ jboss_eap_home }}/bin/"
+    remote_src: yes
+
+- name: copy kie-server.war to JBoss EAP
+  copy:
+    src: "{{ rhdm_server_temp }}/kie-server.war"
+    dest: "{{ jboss_eap_home }}/standalone/deployments/"
+    remote_src: yes
+
+- name: create kie-server.war.dodeploy file in JBoss EAP
+  file:
+    path: "{{ jboss_eap_home }}/standalone/deployments/kie-server.war.dodeploy"
+    state: touch

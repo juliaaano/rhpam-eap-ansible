@@ -1,0 +1,20 @@
+---
+- name: create temp installation directory
+  file:
+    path: "{{ rhdm_server_temp }}"
+    state: directory
+
+- name: setup RHDM in JBoss EAP
+  include_tasks: setup.yml
+  tags: server-setup
+
+- name: install and deploy RHDM (KIE Server) in JBoss EAP
+  include_tasks: install.yml
+  tags: server-install
+
+- name: restart service jboss-eap-rhel
+  service:
+    name: jboss-eap-rhel
+    state: restarted
+  become: yes
+  tags: server-restart

@@ -1,0 +1,22 @@
+embed-server --server-config=standalone-full.xml
+
+    if (outcome != "success") of /system-property=org.jbpm.server.ext.disabled:read-resource
+        /system-property=org.jbpm.server.ext.disabled:add(value="true")
+    end-if
+    if (outcome != "success") of /system-property=org.optaplanner.server.ext.disabled:read-resource
+        /system-property=org.optaplanner.server.ext.disabled:add(value="true")
+    end-if
+    if (outcome != "success") of /system-property=org.kie.executor.disabled:read-resource
+        /system-property=org.kie.executor.disabled:add(value="true")
+    end-if
+    if (outcome != "success") of /system-property=org.kie.server.id:read-resource
+        /system-property=org.kie.server.id:add(value="{{ org_kie_server_id }}")
+    end-if
+    if (outcome != "success") of /system-property=org.kie.server.mode:read-resource
+        /system-property=org.kie.server.mode:add(value="{{ org_kie_server_mode }}")
+    end-if
+    if (outcome != "success") of /system-property=kie.maven.settings.custom:read-resource
+        /system-property=kie.maven.settings.custom:add(value="{{ kie_maven_settings_custom }}")
+    end-if
+
+stop-embedded-server
