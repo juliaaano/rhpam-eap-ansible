@@ -1,6 +1,12 @@
 ---
 # This playbook installs Red Hat Decision Manager.
 
-- hosts: all
+- name: provision RHDM Server
+  hosts: server
   roles:
     - rhdm-server
+
+- name: provision RHDM Central
+  hosts: central
+  roles:
+    - rhdm-central

@@ -1,0 +1,4 @@
+---
+dependencies:
+  - role: jboss-eap
+    tags: jboss-eap

@@ -1,0 +1,24 @@
+---
+- name: copy settings.xml
+  template:
+    src: settings.xml.j2
+    dest: "{{ kie_maven_settings_custom }}"
+
+- name: copy setup.cli
+  template:
+    src: setup.cli.j2
+    dest: "{{ rhdm_central_temp }}/setup.cli"
+
+- name: run setup.cli JBoss configuration
+  command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --file={{ rhdm_central_temp }}/setup.cli"
+
+- name: create git-hook directory
+  file:
+    path: "{{ org_uberfire_nio_git_hooks }}"
+    state: directory
+
+- name: copy git-hook post-commit
+  template:
+    src: post-commit.j2
+    dest: "{{ org_uberfire_nio_git_hooks }}/post-commit"
+    mode: +x

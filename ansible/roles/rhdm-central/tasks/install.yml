@@ -1,0 +1,14 @@
+---
+- name: download RHDM Central
+  get_url:
+    url: "{{ software_repository_url }}/{{ rhdm_central_zip }}"
+    dest: "{{ rhdm_central_temp }}/{{ rhdm_central_zip }}"
+
+- name: extract RHDM Central
+  unarchive:
+    src: "{{ rhdm_central_temp }}/{{ rhdm_central_zip }}"
+    dest: "{{ rhdm_central_temp }}"
+    remote_src: yes
+
+- name: copy RHDM Central to JBoss EAP
+  command: "cp -rf {{ rhdm_central_temp }}/jboss-eap-7.2/. {{ jboss_eap_home }}/"

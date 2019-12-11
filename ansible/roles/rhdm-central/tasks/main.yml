@@ -1,0 +1,24 @@
+---
+- name: create temp installation directory
+  file:
+    path: "{{ rhdm_central_temp }}"
+    state: directory
+
+- name: install and deploy RHDM Central (The Workbench) in JBoss EAP
+  include_tasks: install.yml
+  tags: install
+
+- name: setup RHDM in JBoss EAP
+  include_tasks: setup.yml
+  tags: setup
+
+- name: add users using the basic properties-based realm
+  include_tasks: users.yml
+  tags: users
+
+- name: restart service jboss-eap-rhel
+  service:
+    name: jboss-eap-rhel
+    state: restarted
+  become: yes
+  tags: jboss-restart
