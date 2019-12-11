@@ -1,5 +1,7 @@
 [server]
-127.0.0.1   ansible_user=ec2-user
+#127.0.0.1       ansible_connection=local
+#12.123.123.123  ansible_user=ec2-user
 
 [central]
-127.0.0.1   ansible_user=ec2-user
+#127.0.0.1       ansible_connection=local
+#12.123.123.123  ansible_user=ec2-user

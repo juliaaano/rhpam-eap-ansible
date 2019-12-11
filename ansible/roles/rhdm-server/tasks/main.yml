@@ -6,15 +6,20 @@
 
 - name: setup RHDM in JBoss EAP
   include_tasks: setup.yml
-  tags: server-setup
+  tags: setup
 
 - name: install and deploy RHDM (KIE Server) in JBoss EAP
   include_tasks: install.yml
-  tags: server-install
+  tags: install
+
+- name: populate service facts
+  service_facts:
+  tags: service
 
 - name: restart service jboss-eap-rhel
   service:
     name: jboss-eap-rhel
     state: restarted
   become: yes
-  tags: server-restart
+  when: ansible_facts.services['jboss-eap-rhel.service'] is defined
+  tags: service

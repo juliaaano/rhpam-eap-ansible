@@ -4,7 +4,7 @@
     url: "{{ software_repository_url }}/{{ rhdm_server_zip }}"
     dest: "{{ rhdm_server_temp }}/{{ rhdm_server_zip }}"
 
-- name: extract RHDM server
+- name: extract RHDM Server
   unarchive:
     src: "{{ rhdm_server_temp }}/{{ rhdm_server_zip }}"
     dest: "{{ rhdm_server_temp }}"

@@ -16,9 +16,14 @@
   include_tasks: users.yml
   tags: users
 
+- name: populate service facts
+  service_facts:
+  tags: service
+
 - name: restart service jboss-eap-rhel
   service:
     name: jboss-eap-rhel
     state: restarted
   become: yes
-  tags: jboss-restart
+  when: ansible_facts.services['jboss-eap-rhel.service'] is defined
+  tags: service
