@@ -4,11 +4,13 @@
 software_repository_url: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano
 
 jboss_eap_zip: jboss-eap-7.2.0.zip
+jboss_eap_patch_pattern: "*-patch.zip"
 jboss_eap_patch_zip:
   - jboss-eap-7.2.1-patch.zip
   - jboss-eap-7.2.2-patch.zip
   - jboss-eap-7.2.3-patch.zip
   - jboss-eap-7.2.4-patch.zip
+  - jboss-eap-7.2.5-patch.zip
 
 jboss_eap_path: jboss-eap-7.2
 
