@@ -6,6 +6,4 @@ rhdm_admin_pwd: password
 rhdm_controller_usr: controllerUser
 rhdm_controller_pwd: password
 
-rhdm_central_data: "{{ ansible_env['HOME'] }}/rhdm-central/data"
-
-kie_maven_settings_custom: "{{ ansible_env['HOME'] }}/settings.xml"
+rhdm_central_data: "{{ ansible_env['HOME'] }}/rhdm-data"

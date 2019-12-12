@@ -4,14 +4,17 @@
     url: "{{ software_repository_url }}/{{ jboss_eap_zip }}"
     dest: "{{ jboss_eap_temp }}/{{ jboss_eap_zip }}"
 
-- name: remove JBoss EAP
+- name: extract JBoss EAP
+  unarchive:
+    src: "{{ jboss_eap_temp }}/{{ jboss_eap_zip }}"
+    dest: "{{ jboss_eap_temp }}"
+    creates: "{{ jboss_eap_temp }}/{{ jboss_eap_path }}"
+    remote_src: yes
+
+- name: remove JBoss EAP from its home
   file:
     path: "{{ jboss_eap_home }}"
     state: absent
 
-- name: extract JBoss EAP
-  unarchive:
-    src: "{{ jboss_eap_temp }}/{{ jboss_eap_zip }}"
-    dest: "{{ jboss_eap_base }}"
-    creates: "{{ jboss_eap_home }}"
-    remote_src: yes
+- name: copy JBoss EAP to its home
+  command: "cp -rf {{ jboss_eap_temp }}/{{ jboss_eap_path }} {{ jboss_eap_home }}"
