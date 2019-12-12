@@ -1,5 +1,6 @@
 ---
 # RHEL 7 tested, run JBoss EAP as a service.
+# Source: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/installation_guide/configuring_jboss_eap_to_run_as_a_service
 
 - name: create jboss-eap.conf
   template:

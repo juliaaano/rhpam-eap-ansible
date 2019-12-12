@@ -10,3 +10,9 @@
   hosts: central
   roles:
     - rhdm-central
+
+- name: configure JBoss EAP to run as a service in RHEL7
+  hosts: all
+  roles:
+    - jboss-eap-service
+  tags: service

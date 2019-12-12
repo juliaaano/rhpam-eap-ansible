@@ -11,8 +11,3 @@
 - name: patch JBoss EAP
   include_tasks: patch.yml
   tags: patch
-
-- name: configure JBoss EAP to run as a service in RHEL7
-  include_tasks: service-rhel7.yml
-  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7")
-  tags: service

@@ -1,0 +1,6 @@
+---
+# Run JBoss EAP as a service in different platforms.
+
+- name: configure JBoss EAP to run as a service in RHEL7
+  include_tasks: rhel7.yml
+  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7")
