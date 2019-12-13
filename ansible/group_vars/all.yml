@@ -16,3 +16,5 @@ jboss_eap_path: jboss-eap-7.2
 
 rhdm_server_zip: rhdm-7.5.0-kie-server-ee8.zip
 rhdm_central_zip: rhdm-7.5.0-decision-central-eap7-deployable.zip
+
+jboss_bind_address: "${jboss.bind.address:0.0.0.0}"

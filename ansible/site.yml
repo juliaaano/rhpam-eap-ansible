@@ -3,22 +3,26 @@
 
 - name: provision RHDM Central
   hosts: central
+  roles:
+    - role: rhdm-central
+    - { role: jboss-eap-service, tags: service }
+
+- name: provision RHDM server
+  hosts: server
   tasks:
     - import_role:
-        name: rhdm-central
+        name: rhdm-server
     - import_role:
         name: jboss-eap-service
       tags:
         - service
 
-- name: provision RHDM Server
-  hosts: server
-  roles:
-    - role: rhdm-server
-    - { role: jboss-eap-service, tags: service }
-
 - name: provision Central and Server on the same host
   hosts: hybrid
-  roles:
-    - rhdm-central
-    - rhdm-server
+  tasks:
+    - import_role:
+        name: rhdm-central
+    - import_role:
+        name: rhdm-server
+      vars:
+        - jboss_socket_binding_port_offset: 100
