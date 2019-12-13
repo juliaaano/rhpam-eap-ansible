@@ -1,6 +1,6 @@
 ---
 - name: add the admin user
-  command: "{{ jboss_eap_home }}/bin/add-user.sh -a --user {{ rhdm_admin_usr }} --password {{ rhdm_admin_pwd }} --role admin"
+  command: "{{ jboss_eap_rhdm_central_home }}/bin/add-user.sh -a --user {{ rhdm_admin_usr }} --password {{ rhdm_admin_pwd }} --role admin"
 
 - name: add the controller user
-  command: "{{ jboss_eap_home }}/bin/add-user.sh -a --user {{ rhdm_controller_usr }} --password {{ rhdm_controller_pwd }} --role rest-all"
+  command: "{{ jboss_eap_rhdm_central_home }}/bin/add-user.sh -a --user {{ rhdm_controller_usr }} --password {{ rhdm_controller_pwd }} --role rest-all"

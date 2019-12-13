@@ -3,11 +3,10 @@
   file:
     path: "{{ rhdm_server_temp }}"
     state: directory
+  tags: [setup, install]
 
-- name: setup RHDM in JBoss EAP
-  include_tasks: setup.yml
+- import_tasks: setup.yml
   tags: setup
 
-- name: install and deploy RHDM (KIE Server) in JBoss EAP
-  include_tasks: install.yml
+- import_tasks: install.yml
   tags: install

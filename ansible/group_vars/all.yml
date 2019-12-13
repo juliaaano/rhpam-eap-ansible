@@ -14,5 +14,5 @@ jboss_eap_patch_zip:
 
 jboss_eap_path: jboss-eap-7.2
 
-jboss_eap_user: ec2-user
-jboss_eap_home: "{{ ansible_env['HOME'] }}/{{ jboss_eap_path }}"
+rhdm_server_zip: rhdm-7.5.0-kie-server-ee8.zip
+rhdm_central_zip: rhdm-7.5.0-decision-central-eap7-deployable.zip

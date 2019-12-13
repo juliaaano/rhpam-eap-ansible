@@ -11,4 +11,4 @@
     remote_src: yes
 
 - name: copy RHDM Central to JBoss EAP
-  command: "cp -rf {{ rhdm_central_temp }}/{{ jboss_eap_path }}/. {{ jboss_eap_home }}/"
+  command: "cp -rf {{ rhdm_central_temp }}/{{ jboss_eap_path }}/. {{ jboss_eap_rhdm_central_home }}/"

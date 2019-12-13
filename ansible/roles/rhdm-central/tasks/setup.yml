@@ -15,7 +15,7 @@
     dest: "{{ rhdm_central_temp }}/setup.cli"
 
 - name: run setup.cli JBoss configuration
-  command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --file={{ rhdm_central_temp }}/setup.cli"
+  command: "{{ jboss_eap_rhdm_central_home }}/bin/jboss-cli.sh --file={{ rhdm_central_temp }}/setup.cli"
 
 - name: create git-hook directory
   file:

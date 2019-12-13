@@ -1,9 +1,11 @@
 ---
 rhdm_central_temp: /tmp/rhdm-central
 
+jboss_eap_rhdm_central_home: "{{ ansible_user_dir }}/rhdm-central/{{ jboss_eap_path }}"
+
+rhdm_central_data: "{{ ansible_user_dir }}/rhdm-central/data"
+
 rhdm_admin_usr: adminUser
 rhdm_admin_pwd: password
 rhdm_controller_usr: controllerUser
 rhdm_controller_pwd: password
-
-rhdm_central_data: "{{ ansible_env['HOME'] }}/rhdm-data"

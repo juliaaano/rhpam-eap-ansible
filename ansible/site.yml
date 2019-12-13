@@ -1,18 +1,24 @@
 ---
 # This playbook installs Red Hat Decision Manager.
 
+- name: provision RHDM Central
+  hosts: central
+  tasks:
+    - import_role:
+        name: rhdm-central
+    - import_role:
+        name: jboss-eap-service
+      tags:
+        - service
+
 - name: provision RHDM Server
   hosts: server
   roles:
-    - rhdm-server
+    - role: rhdm-server
+    - { role: jboss-eap-service, tags: service }
 
-- name: provision RHDM Central
-  hosts: central
+- name: provision Central and Server on the same host
+  hosts: hybrid
   roles:
     - rhdm-central
-
-- name: configure JBoss EAP to run as a service in RHEL7
-  hosts: all
-  roles:
-    - jboss-eap-service
-  tags: service
+    - rhdm-server

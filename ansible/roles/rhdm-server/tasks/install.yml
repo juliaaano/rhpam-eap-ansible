@@ -13,16 +13,16 @@
 - name: copy SecurityPolicy to JBoss EAP
   copy:
     src: "{{ rhdm_server_temp }}/SecurityPolicy/"
-    dest: "{{ jboss_eap_home }}/bin/"
+    dest: "{{ jboss_eap_rhdm_server_home }}/bin/"
     remote_src: yes
 
 - name: copy kie-server.war to JBoss EAP
   copy:
     src: "{{ rhdm_server_temp }}/kie-server.war"
-    dest: "{{ jboss_eap_home }}/standalone/deployments/"
+    dest: "{{ jboss_eap_rhdm_server_home }}/standalone/deployments/"
     remote_src: yes
 
 - name: create kie-server.war.dodeploy file in JBoss EAP
   file:
-    path: "{{ jboss_eap_home }}/standalone/deployments/kie-server.war.dodeploy"
+    path: "{{ jboss_eap_rhdm_server_home }}/standalone/deployments/kie-server.war.dodeploy"
     state: touch

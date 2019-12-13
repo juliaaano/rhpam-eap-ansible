@@ -1,4 +1,0 @@
----
-# Variables here are applicable to rhdm central host groups
-
-rhdm_central_zip: rhdm-7.5.0-decision-central-eap7-deployable.zip

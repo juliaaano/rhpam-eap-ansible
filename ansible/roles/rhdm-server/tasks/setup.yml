@@ -1,6 +1,11 @@
 ---
+- name: create data directory
+  file:
+    path: "{{ rhdm_server_data }}"
+    state: directory
+
 - name: add the kieserver user
-  command: "{{ jboss_eap_home }}/bin/add-user.sh -a --user {{ rhdm_kieserver_usr }} --password {{ rhdm_kieserver_pwd }} --role kie-server"
+  command: "{{ jboss_eap_rhdm_server_home }}/bin/add-user.sh -a --user {{ rhdm_kieserver_usr }} --password {{ rhdm_kieserver_pwd }} --role kie-server"
 
 - name: copy settings.xml
   template:
@@ -13,4 +18,4 @@
     dest: "{{ rhdm_server_temp }}/setup.cli"
 
 - name: run setup.cli JBoss configuration
-  command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --file={{ rhdm_server_temp }}/setup.cli"
+  command: "{{ jboss_eap_rhdm_server_home }}/bin/jboss-cli.sh --file={{ rhdm_server_temp }}/setup.cli"

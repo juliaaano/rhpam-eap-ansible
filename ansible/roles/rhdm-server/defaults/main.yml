@@ -1,8 +1,11 @@
 ---
 rhdm_server_temp: /tmp/rhdm-server
 
+jboss_eap_rhdm_server_home: "{{ ansible_user_dir }}/rhdm-server/{{ jboss_eap_path }}"
+
+rhdm_server_data: "{{ ansible_user_dir }}/rhdm-server/data"
+
 rhdm_kieserver_usr: kieserver
 rhdm_kieserver_pwd: kieserver
 
 org_kie_server_id: kieserver-default
-kie_maven_settings_custom: "{{ ansible_env['HOME'] }}/settings.xml"

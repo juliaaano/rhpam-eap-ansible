@@ -3,11 +3,10 @@
   file:
     path: "{{ jboss_eap_temp }}"
     state: directory
+  tags: [install, patch]
 
-- name: install JBoss EAP
-  include_tasks: install.yml
+- import_tasks: install.yml
   tags: install
 
-- name: patch JBoss EAP
-  include_tasks: patch.yml
+- import_tasks: patch.yml
   tags: patch

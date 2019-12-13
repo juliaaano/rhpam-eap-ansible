@@ -1,4 +1,6 @@
 ---
 dependencies:
   - role: jboss-eap
+    vars:
+      jboss_eap_home: "{{ jboss_eap_rhdm_central_home }}"
     tags: jboss-eap
