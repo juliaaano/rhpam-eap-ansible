@@ -9,8 +9,3 @@ rhdm_kieserver_usr: kieserver
 rhdm_kieserver_pwd: kieserver
 
 org_kie_server_id: kieserver-default
-
-jboss_bind_address: "${jboss.bind.address:127.0.0.1}"
-jboss_http_port: "${jboss.http.port:8080}"
-jboss_https_port: "${jboss.https.port:8443}"
-jboss_socket_binding_port_offset: "${jboss.socket.binding.port-offset:0}"

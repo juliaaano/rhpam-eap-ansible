@@ -19,9 +19,4 @@ embed-server --server-config=standalone-full.xml
         /system-property=kie.maven.settings.custom:add(value="{{ kie_maven_settings_custom }}")
     end-if
 
-    /interface=public/:write-attribute(name=inet-address,value={{ jboss_bind_address }})
-    /socket-binding-group=standard-sockets/socket-binding=http:write-attribute(name=port, value={{ jboss_http_port }})
-    /socket-binding-group=standard-sockets/socket-binding=https:write-attribute(name=port, value={{ jboss_https_port }})
-    /socket-binding-group=standard-sockets:write-attribute(name=port-offset, value={{ jboss_socket_binding_port_offset }})
-
 stop-embedded-server
