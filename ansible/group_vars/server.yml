@@ -1,0 +1,5 @@
+---
+# Variables here are applicable to RHDM Server host groups
+
+# These include inherited opts from standalone.conf. Appending of JAVA_OPTS not possible, overwrite only.
+java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"

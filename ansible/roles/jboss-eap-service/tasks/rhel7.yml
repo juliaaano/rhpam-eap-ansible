@@ -23,7 +23,7 @@
 - name: start service jboss-eap-rhel
   service:
     name: jboss-eap-rhel
-    state: started
+    state: restarted
   become: yes
 
 - name: turn on chkconfig service auto start
