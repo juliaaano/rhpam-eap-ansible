@@ -1,0 +1,5 @@
+---
+# Variables here are applicable to hybrid host groups.
+
+rhdm_server_zip: rhdm-7.5.0-kie-server-ee8.zip
+rhdm_central_zip: rhdm-7.5.0-decision-central-eap7-deployable.zip

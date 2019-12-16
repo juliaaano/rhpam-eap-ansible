@@ -9,3 +9,8 @@ rhdm_kieserver_usr: kieserver
 rhdm_kieserver_pwd: kieserver
 
 org_kie_server_id: kieserver-default
+
+org_kie_server_http_port: 8080
+org_kie_server_https_port: 8443
+
+org_kie_server_location: "http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"

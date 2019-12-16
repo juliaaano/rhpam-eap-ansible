@@ -22,7 +22,13 @@
   tasks:
     - import_role:
         name: rhdm-central
+      vars:
+        - jboss_socket_binding_port_offset: 100
+        - rhdm_controller_usr: controllerUsr
+        - rhdm_controller_pwd: controllerPwd
     - import_role:
         name: rhdm-server
       vars:
-        - jboss_socket_binding_port_offset: 100
+        - org_kie_server_controller: ws://localhost:8180/decision-central/websocket/controller
+        - org_kie_server_controller_user: "{{ rhdm_controller_usr }}"
+        - org_kie_server_controller_pwd: "{{ rhdm_controller_pwd }}"

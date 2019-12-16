@@ -1,5 +1,7 @@
 ---
-# Variables here are applicable to RHDM Central host groups
+# Variables here are applicable to RHDM Central host groups.
+
+rhdm_central_zip: rhdm-7.5.0-decision-central-eap7-deployable.zip
 
 # These include inherited opts from standalone.conf. Appending of JAVA_OPTS not possible, overwrite only.
 java_opts: "-Xms4096m -Xmx4096m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"

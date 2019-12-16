@@ -1,7 +1,10 @@
 ---
 jboss_eap_temp: /tmp/jboss-eap
 
+jboss_http_port_number: 8080
+jboss_https_port_number: 8443
+
 jboss_bind_address: "${jboss.bind.address:127.0.0.1}"
-jboss_http_port: "${jboss.http.port:8080}"
-jboss_https_port: "${jboss.https.port:8443}"
+jboss_http_port: "${jboss.http.port:{{ jboss_http_port_number }}}"
+jboss_https_port: "${jboss.https.port:{{ jboss_https_port_number }}}"
 jboss_socket_binding_port_offset: "${jboss.socket.binding.port-offset:0}"

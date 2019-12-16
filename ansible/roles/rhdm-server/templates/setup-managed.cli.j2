@@ -1,0 +1,16 @@
+embed-server --server-config=standalone-full.xml
+
+    if (outcome != "success") of /system-property=org.kie.server.location:read-resource
+        /system-property=org.kie.server.location:add(value={{ org_kie_server_location }})
+    end-if
+    if (outcome != "success") of /system-property=org.kie.server.controller:read-resource
+        /system-property=org.kie.server.controller:add(value={{ org_kie_server_controller }})
+    end-if
+    if (outcome != "success") of /system-property=org.kie.server.controller.user:read-resource
+        /system-property=org.kie.server.controller.user:add(value={{ org_kie_server_controller_user }})
+    end-if
+    if (outcome != "success") of /system-property=org.kie.server.controller.pwd:read-resource
+        /system-property=org.kie.server.controller.pwd:add(value={{ org_kie_server_controller_pwd }})
+    end-if
+
+stop-embedded-server

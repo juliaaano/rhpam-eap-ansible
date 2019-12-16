@@ -8,5 +8,9 @@
 - import_tasks: setup.yml
   tags: setup
 
+- import_tasks: setup-managed.yml
+  when: org_kie_server_controller is defined
+  tags: setup
+
 - import_tasks: install.yml
   tags: install
