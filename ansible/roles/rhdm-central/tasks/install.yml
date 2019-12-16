@@ -3,6 +3,7 @@
   get_url:
     url: "{{ software_repository_url }}/{{ rhdm_central_zip }}"
     dest: "{{ rhdm_central_temp }}/{{ rhdm_central_zip }}"
+  tags: download
 
 - name: extract RHDM Central
   unarchive:

@@ -5,7 +5,14 @@
     dest: "{{ jboss_eap_temp }}/{{ item }}"
   loop: "{{ jboss_eap_patch_zip }}"
   ignore_errors: yes
+  tags: download
+
+- name: find downloaded JBoss patches
+  find:
+    path: "{{ jboss_eap_temp }}"
+    pattern: "{{ jboss_eap_patch_pattern }}"
+  register: jboss_eap_patch_downloads
 
 - name: apply JBoss EAP patches
   command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --command='patch apply {{ item }}'"
-  loop: "{{ query('fileglob', '{{ jboss_eap_temp }}/{{ jboss_eap_patch_pattern }}') | sort }}"
+  loop: "{{ jboss_eap_patch_downloads.files | sort(attribute='path') | map(attribute='path') | list }}"

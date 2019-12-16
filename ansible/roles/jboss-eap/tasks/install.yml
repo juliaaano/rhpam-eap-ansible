@@ -3,6 +3,7 @@
   get_url:
     url: "{{ software_repository_url }}/{{ jboss_eap_zip }}"
     dest: "{{ jboss_eap_temp }}/{{ jboss_eap_zip }}"
+  tags: download
 
 - name: extract JBoss EAP
   unarchive:
