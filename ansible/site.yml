@@ -1,11 +1,19 @@
 ---
-# This playbook installs Red Hat Decision Manager.
+# This playbook can install Red Hat Decision Manager in multiple flavours:
+# 1. RHDM Server (KIE Server) unmanaged.
+# 2. RHDM Server (KIE Server) managed, via the 'org_kie_server_controller' variable.
+# 3. RHDM Central (Business Central / Workbench).
+# 4. RHDM Central and Server on the same host.
 
 - name: provision RHDM Central
   hosts: central
-  roles:
-    - role: rhdm-central
-    - { role: jboss-eap-service, tags: service }
+  tasks:
+    - import_role:
+        name: rhdm-central
+    - import_role:
+        name: jboss-eap-service
+      vars:
+        jboss_eap_svc_home: "{{ jboss_eap_home }}"
 
 - name: provision RHDM server
   hosts: server
@@ -14,21 +22,15 @@
         name: rhdm-server
     - import_role:
         name: jboss-eap-service
-      tags:
-        - service
+      vars:
+        jboss_eap_svc_home: "{{ jboss_eap_home }}"
 
-- name: provision Central and Server on the same host
+- name: provision RHDM Central and RHDM Server on the same host
   hosts: hybrid
   tasks:
-    - import_role:
+    - include_role:
         name: rhdm-central
       vars:
-        - jboss_socket_binding_port_offset: 100
-        - rhdm_controller_usr: controllerUsr
-        - rhdm_controller_pwd: controllerPwd
-    - import_role:
+        jboss_socket_binding_port_offset: 100
+    - include_role:
         name: rhdm-server
-      vars:
-        - org_kie_server_controller: ws://localhost:8180/decision-central/websocket/controller
-        - org_kie_server_controller_user: "{{ rhdm_controller_usr }}"
-        - org_kie_server_controller_pwd: "{{ rhdm_controller_pwd }}"

@@ -1,15 +1,11 @@
 ---
-- name: create temp installation directory
+- name: create {{ rhdm_central_temp }} installation directory
   file:
     path: "{{ rhdm_central_temp }}"
     state: directory
-  tags: [install, setup]
 
 - import_tasks: install.yml
-  tags: install
 
 - import_tasks: setup.yml
-  tags: setup
 
 - import_tasks: users.yml
-  tags: users

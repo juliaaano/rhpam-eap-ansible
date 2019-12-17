@@ -1,8 +1,8 @@
 ---
-- name: copy setup-managed.cli
+- name: create setup-managed.cli
   template:
     src: setup-managed.cli.j2
     dest: "{{ rhdm_server_temp }}/setup-managed.cli"
 
 - name: run setup-managed.cli JBoss configuration
-  command: "{{ jboss_eap_rhdm_server_home }}/bin/jboss-cli.sh --file={{ rhdm_server_temp }}/setup-managed.cli"
+  command: "{{ rhdm_server_home }}/bin/jboss-cli.sh --file={{ rhdm_server_temp }}/setup-managed.cli"

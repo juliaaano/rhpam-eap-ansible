@@ -1,16 +1,16 @@
 ---
+rhdm_server_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhdm
+rhdm_server_artifact_name: rhdm-7.5.0-kie-server-ee8.zip
+
 rhdm_server_temp: /tmp/rhdm-server
+rhdm_server_root: "{{ ansible_user_dir }}/rhdm-server"
+rhdm_server_home: "{{ jboss_eap_home }}" # From role jboss-eap
+rhdm_server_data: "{{ rhdm_server_root }}/data"
 
-jboss_eap_rhdm_server_home: "{{ ansible_user_dir }}/rhdm-server/{{ jboss_eap_path }}"
-
-rhdm_server_data: "{{ ansible_user_dir }}/rhdm-server/data"
-
-rhdm_kieserver_usr: kieserver
-rhdm_kieserver_pwd: kieserver
+rhdm_server_kieserver_usr: kieserver
+rhdm_server_kieserver_pwd: kieserver
 
 org_kie_server_id: kieserver-default
-
 org_kie_server_http_port: 8080
 org_kie_server_https_port: 8443
-
 org_kie_server_location: "http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"

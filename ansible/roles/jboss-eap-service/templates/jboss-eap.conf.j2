@@ -1,6 +1,6 @@
-JBOSS_HOME={{ jboss_eap_home }}
-JBOSS_USER={{ jboss_eap_user }}
+JBOSS_HOME={{ jboss_eap_svc_home }}
+JBOSS_USER={{ jboss_eap_svc_user }}
 JBOSS_CONFIG=standalone-full.xml
 JBOSS_OPTS=""
 
-export JAVA_OPTS="{{ java_opts }}"
+export JAVA_OPTS="{{ jboss_eap_svc_java_opts | default('') }}"

@@ -1,29 +1,28 @@
 ---
-- name: download JBoss EAP
+- name: download JBoss EAP into {{ jboss_eap_temp }}
   get_url:
-    url: "{{ software_repository_url }}/{{ jboss_eap_zip }}"
-    dest: "{{ jboss_eap_temp }}/{{ jboss_eap_zip }}"
-  tags: download
+    url: "{{ jboss_eap_artifact_source }}/{{ jboss_eap_artifact_name }}"
+    dest: "{{ jboss_eap_temp }}/{{ jboss_eap_artifact_name }}"
 
-- name: extract JBoss EAP
+- name: extract JBoss EAP into {{ jboss_eap_temp }}
   unarchive:
-    src: "{{ jboss_eap_temp }}/{{ jboss_eap_zip }}"
+    src: "{{ jboss_eap_temp }}/{{ jboss_eap_artifact_name }}"
     dest: "{{ jboss_eap_temp }}"
     creates: "{{ jboss_eap_temp }}/{{ jboss_eap_path }}"
     remote_src: yes
 
 - name: recreate JBoss EAP home (required for patch)
   block:
-    - name: remove JBoss EAP home
+    - name: remove JBoss EAP home {{ jboss_eap_home }}
       file:
         path: "{{ jboss_eap_home }}"
         state: absent
-    - name: create JBoss EAP home
+    - name: create JBoss EAP home {{ jboss_eap_home }}
       file:
         path: "{{ jboss_eap_home }}"
         state: directory
 
-- name: copy JBoss
+- name: copy JBoss EAP to home {{ jboss_eap_home }}
   copy:
     src: "{{ jboss_eap_temp }}/{{ jboss_eap_path }}/"
     dest: "{{ jboss_eap_home }}/"

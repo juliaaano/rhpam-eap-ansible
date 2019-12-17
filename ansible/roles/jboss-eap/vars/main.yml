@@ -1,0 +1,5 @@
+jboss_eap_home: "{{ jboss_eap_root }}/{{ jboss_eap_path }}"
+jboss_bind_address: "${jboss.bind.address:{{ jboss_bind_address_number }}}"
+jboss_http_port: "${jboss.http.port:{{ jboss_http_port_number }}}"
+jboss_https_port: "${jboss.https.port:{{ jboss_https_port_number }}}"
+jboss_socket_binding_port_offset: "${jboss.socket.binding.port-offset:{{ jboss_socket_binding_port_offset_number }}}"

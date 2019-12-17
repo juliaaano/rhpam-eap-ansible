@@ -1,13 +1,12 @@
 ---
-- name: download RHDM Central
+- name: download RHDM Central into {{ rhdm_central_temp }}
   get_url:
-    url: "{{ software_repository_url }}/{{ rhdm_central_zip }}"
-    dest: "{{ rhdm_central_temp }}/{{ rhdm_central_zip }}"
-  tags: download
+    url: "{{ rhdm_central_artifact_source }}/{{ rhdm_central_artifact_name }}"
+    dest: "{{ rhdm_central_temp }}/{{ rhdm_central_artifact_name }}"
 
-- name: extract RHDM Central
+- name: extract RHDM Central into {{ rhdm_central_temp }}
   unarchive:
-    src: "{{ rhdm_central_temp }}/{{ rhdm_central_zip }}"
+    src: "{{ rhdm_central_temp }}/{{ rhdm_central_artifact_name }}"
     dest: "{{ rhdm_central_temp }}"
     remote_src: yes
 
@@ -16,5 +15,5 @@
     path: "{{ rhdm_central_temp }}/{{ jboss_eap_path }}/standalone/configuration/standalone-full.xml"
     state: absent
 
-- name: copy RHDM Central to JBoss EAP
-  command: "cp -rf {{ rhdm_central_temp }}/{{ jboss_eap_path }}/. {{ jboss_eap_rhdm_central_home }}/"
+- name: install RHDM Central files on {{ rhdm_central_home }}
+  command: "cp -rf {{ rhdm_central_temp }}/{{ jboss_eap_path }}/. {{ rhdm_central_home }}/"

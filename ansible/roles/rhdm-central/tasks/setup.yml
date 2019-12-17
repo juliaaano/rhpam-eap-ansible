@@ -1,28 +1,28 @@
 ---
-- name: create data directory
+- name: create {{ rhdm_central_data }} directory
   file:
     path: "{{ rhdm_central_data }}"
     state: directory
 
-- name: copy settings.xml
+- name: create {{ kie_maven_settings_custom }}
   template:
     src: settings.xml.j2
     dest: "{{ kie_maven_settings_custom }}"
 
-- name: copy setup.cli
+- name: create setup.cli
   template:
     src: setup.cli.j2
     dest: "{{ rhdm_central_temp }}/setup.cli"
 
 - name: run setup.cli JBoss configuration
-  command: "{{ jboss_eap_rhdm_central_home }}/bin/jboss-cli.sh --file={{ rhdm_central_temp }}/setup.cli"
+  command: "{{ rhdm_central_home }}/bin/jboss-cli.sh --file={{ rhdm_central_temp }}/setup.cli"
 
-- name: create git-hook directory
+- name: create git-hook directory {{ org_uberfire_nio_git_hooks }}
   file:
     path: "{{ org_uberfire_nio_git_hooks }}"
     state: directory
 
-- name: copy git-hook post-commit
+- name: create git-hook post-commit {{ org_uberfire_nio_git_hooks }}/post-commit
   template:
     src: post-commit.j2
     dest: "{{ org_uberfire_nio_git_hooks }}/post-commit"

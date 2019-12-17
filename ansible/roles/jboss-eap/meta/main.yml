@@ -2,4 +2,4 @@
 allow_duplicates: true
 dependencies:
   - role: environment
-    tags: environment
+

@@ -1,5 +1,5 @@
 ---
-- name: copy setup.cli
+- name: create setup.cli
   template:
     src: setup.cli.j2
     dest: "{{ jboss_eap_temp }}/setup.cli"

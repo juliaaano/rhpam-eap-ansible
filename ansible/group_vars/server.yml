@@ -1,10 +1,8 @@
 ---
 # Variables here are applicable to RHDM Server host groups.
 
-rhdm_server_zip: rhdm-7.5.0-kie-server-ee8.zip
-
 # These include inherited opts from standalone.conf. Appending of JAVA_OPTS not possible, overwrite only.
-java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
+jboss_eap_svc_java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
 
 # Enable MANAGED mode for the KIE Server.
 #org_kie_server_controller: ws://localhost:8080/decision-central/websocket/controller

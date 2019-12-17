@@ -1,18 +1,17 @@
 ---
 - name: download JBoss EAP patches
   get_url:
-    url: "{{ software_repository_url }}/{{ item }}"
+    url: "{{ jboss_eap_artifact_source }}/{{ item }}"
     dest: "{{ jboss_eap_temp }}/{{ item }}"
-  loop: "{{ jboss_eap_patch_zip }}"
+  loop: "{{ jboss_eap_patch_artifact_names }}"
   ignore_errors: yes
-  tags: download
 
 - name: find downloaded JBoss patches
   find:
     path: "{{ jboss_eap_temp }}"
-    pattern: "{{ jboss_eap_patch_pattern }}"
-  register: jboss_eap_patch_downloads
+    pattern: "{{ jboss_eap_patch_artifact_pattern }}"
+  register: jboss_eap_patch_artifact_files
 
 - name: apply JBoss EAP patches
   command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --command='patch apply {{ item }}'"
-  loop: "{{ jboss_eap_patch_downloads.files | sort(attribute='path') | map(attribute='path') | list }}"
+  loop: "{{ jboss_eap_patch_artifact_files.files | sort(attribute='path') | map(attribute='path') | list }}"

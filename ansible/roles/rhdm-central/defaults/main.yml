@@ -1,11 +1,13 @@
 ---
+rhdm_central_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhdm
+rhdm_central_artifact_name: rhdm-7.5.0-decision-central-eap7-deployable.zip
+
 rhdm_central_temp: /tmp/rhdm-central
+rhdm_central_root: "{{ ansible_user_dir }}/rhdm-central"
+rhdm_central_home: "{{ jboss_eap_home }}" # From role jboss-eap
+rhdm_central_data: "{{ rhdm_central_root }}/data"
 
-jboss_eap_rhdm_central_home: "{{ ansible_user_dir }}/rhdm-central/{{ jboss_eap_path }}"
-
-rhdm_central_data: "{{ ansible_user_dir }}/rhdm-central/data"
-
-rhdm_admin_usr: adminUser
-rhdm_admin_pwd: password
-rhdm_controller_usr: controllerUser
-rhdm_controller_pwd: password
+rhdm_central_admin_usr: adminUser
+rhdm_central_admin_pwd: password
+rhdm_central_controller_usr: controllerUsr
+rhdm_central_controller_pwd: controllerPwd
