@@ -1,5 +1,23 @@
 embed-server --server-config=standalone-full.xml
 
+    if (outcome != "success") of /system-property=org.kie.example:read-resource
+        /system-property=org.kie.example:add(value="{{ org_kie_example }}")
+    end-if
+    if (outcome != "success") of /system-property=org.jbpm.designer.perspective:read-resource
+        /system-property=org.jbpm.designer.perspective:add(value="{{ org_jbpm_designer_perspective }}")
+    end-if
+    if (outcome != "success") of /system-property=designerdataobjects:read-resource
+        /system-property=designerdataobjects:add(value="{{ designerdataobjects }}")
+    end-if
+    if (outcome != "success") of /system-property=org.kie.workbench.profile:read-resource
+        /system-property=org.kie.workbench.profile:add(value="{{ org_kie_workbench_profile }}")
+    end-if
+    if (outcome != "success") of /system-property=org.jbpm.server.ext.disabled:read-resource
+        /system-property=org.jbpm.server.ext.disabled:add(value="{{ org_jbpm_server_ext_disabled }}")
+    end-if
+    if (outcome != "success") of /system-property=org.jbpm.ui.server.ext.disabled:read-resource
+        /system-property=org.jbpm.ui.server.ext.disabled:add(value="{{ org_jbpm_ui_server_ext_disabled }}")
+    end-if
     if (outcome != "success") of /system-property=org.uberfire.nio.git.hooks:read-resource
         /system-property=org.uberfire.nio.git.hooks:add(value="{{ org_uberfire_nio_git_hooks }}")
     end-if
