@@ -4,6 +4,9 @@
 # These include inherited opts from standalone.conf. Appending of JAVA_OPTS not possible, overwrite only.
 jboss_eap_svc_java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
 
+# Enable production mode.
+#org_kie_server_mode: production
+
 # Enable MANAGED mode for the KIE Server.
 #org_kie_server_controller: ws://localhost:8080/decision-central/websocket/controller
 #org_kie_server_controller_user: "controlerUsr"
