@@ -13,13 +13,13 @@
     </proxy>
   </proxies> -->
 
-  <!-- <servers>
+  <servers>
     <server>
       <id>rhdm</id>
-      <username>${env.MAVEN_USR}</username>
-      <password>${env.MAVEN_PWD}</password>
+      <username>{{ rhdm_server_maven_remote_workbench_repo_usr | default('empty') }}</username>
+      <password>{{ rhdm_server_maven_remote_workbench_repo_pwd | default('empty') }}</password>
     </server>
-  </servers> -->
+  </servers>
 
   <!-- <mirrors>
     <mirror>
@@ -38,7 +38,7 @@
       <repositories>
         <repository>
           <id>rhdm</id>
-          <url>http://localhost:8080/decision-central/maven2/</url>
+          <url>{{ rhdm_server_maven_remote_workbench_repo_url | default('empty') }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -103,7 +103,9 @@
   </profiles>
 
   <activeProfiles>
-    <!-- <activeProfile>rhdm</activeProfile> -->
+    {% if rhdm_server_maven_remote_workbench_repo_url is defined %}
+    <activeProfile>rhdm</activeProfile>
+    {% endif %}
     <!-- <activeProfile>local-releases</activeProfile> -->
     <activeProfile>jboss-enterprise-maven-repository</activeProfile>
   </activeProfiles>
