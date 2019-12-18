@@ -23,7 +23,6 @@
         state: directory
 
 - name: copy JBoss EAP to home {{ jboss_eap_home }}
-  copy:
-    src: "{{ jboss_eap_temp }}/{{ jboss_eap_path }}/"
-    dest: "{{ jboss_eap_home }}/"
-    remote_src: yes
+  command:
+    cmd: "cp -rf {{ jboss_eap_temp }}/{{ jboss_eap_path }}/. {{ jboss_eap_home }}/"
+    creates: "{{ jboss_eap_home }}/bin"
