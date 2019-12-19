@@ -11,16 +11,14 @@
     remote_src: yes
 
 - name: copy SecurityPolicy to {{ rhdm_server_home }}/bin/
-  copy:
-    src: "{{ rhdm_server_temp }}/SecurityPolicy/"
-    dest: "{{ rhdm_server_home }}/bin/"
-    remote_src: yes
+  command:
+    cmd: "cp -rf {{ rhdm_server_temp }}/SecurityPolicy/. {{ rhdm_server_home }}/bin/"
+    removes: "{{ rhdm_server_home }}/bin"
 
 - name: copy kie-server.war to {{ rhdm_server_home }}/standalone/deployments/
-  copy:
-    src: "{{ rhdm_server_temp }}/kie-server.war"
-    dest: "{{ rhdm_server_home }}/standalone/deployments/"
-    remote_src: yes
+  command:
+    cmd: "cp -rf {{ rhdm_server_temp }}/kie-server.war {{ rhdm_server_home }}/standalone/deployments/"
+    creates: "{{ rhdm_server_home }}/standalone/deployments/kie-server.war"
 
 - name: create kie-server.war.dodeploy
   file:

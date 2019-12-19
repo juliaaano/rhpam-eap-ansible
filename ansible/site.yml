@@ -15,7 +15,7 @@
       vars:
         jboss_eap_svc_home: "{{ jboss_eap_home }}"
 
-- name: provision RHDM server
+- name: provision RHDM Server
   hosts: server
   tasks:
     - import_role:
