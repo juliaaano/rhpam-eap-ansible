@@ -13,13 +13,20 @@
     </proxy>
   </proxies> -->
 
-  <!-- <servers>
-    <server>
+  <servers>
+    <!-- <server>
       <id>jboss-enterprise-maven-repository</id>
       <username>${env.MAVEN_USR}</username>
       <password>${env.MAVEN_PWD}</password>
+    </server> -->
+    {% if rhdm_central_maven_local_repo_usr is defined and rhdm_central_maven_local_repo_pwd is defined %}
+    <server>
+      <id>local-repository</id>
+      <username>{{ rhdm_central_maven_local_repo_usr }}</username>
+      <password>{{ rhdm_central_maven_local_repo_pwd }}</password>
     </server>
-  </servers> -->
+    {% endif %}
+  </servers>
 
   <mirrors>
     {% if rhdm_central_maven_mirror_central_repo_url is defined %}
@@ -65,10 +72,32 @@
       </pluginRepositories>
     </profile>
 
+    <!-- Configure a local Maven repository -->
+    <profile>
+      <id>local-repository</id>
+      <repositories>
+        <repository>
+          <id>local-repository</id>
+          <url>{{ rhdm_central_maven_local_repo_url | default('empty') }}</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+
   </profiles>
 
   <activeProfiles>
     <activeProfile>jboss-enterprise-maven-repository</activeProfile>
+    {% if rhdm_central_maven_local_repo_url is defined %}
+    <activeProfile>local-repository</activeProfile>
+    {% endif %}
   </activeProfiles>
 
 </settings>

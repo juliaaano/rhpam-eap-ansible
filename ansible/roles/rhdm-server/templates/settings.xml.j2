@@ -19,6 +19,13 @@
       <username>{{ rhdm_server_maven_remote_workbench_repo_usr | default('empty') }}</username>
       <password>{{ rhdm_server_maven_remote_workbench_repo_pwd | default('empty') }}</password>
     </server>
+    {% if rhdm_server_maven_local_repo_usr is defined and rhdm_server_maven_local_repo_pwd is defined %}
+    <server>
+      <id>local-repository</id>
+      <username>{{ rhdm_server_maven_local_repo_usr }}</username>
+      <password>{{ rhdm_server_maven_local_repo_pwd }}</password>
+    </server>
+    {% endif %}
   </servers>
 
   <mirrors>
@@ -48,24 +55,6 @@
           <snapshots>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
-          </snapshots>
-        </repository>
-      </repositories>
-    </profile>
-
-    <!-- Configure the Local Releases Maven repository -->
-    <profile>
-      <id>local-releases</id>
-      <repositories>
-        <repository>
-          <id>local-releases</id>
-          <url>http://localhost:8080/decision-central/maven2/</url>
-          <!-- <url>my-local-hosted-repository-url</url> -->
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
           </snapshots>
         </repository>
       </repositories>
@@ -102,14 +91,35 @@
       </pluginRepositories>
     </profile>
 
+    <!-- Configure a local Maven repository -->
+    <profile>
+      <id>local-repository</id>
+      <repositories>
+        <repository>
+          <id>local-repository</id>
+          <url>{{ rhdm_server_maven_local_repo_url | default('empty') }}</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+
   </profiles>
 
   <activeProfiles>
     {% if rhdm_server_maven_remote_workbench_repo_url is defined %}
     <activeProfile>rhdm</activeProfile>
     {% endif %}
-    <!-- <activeProfile>local-releases</activeProfile> -->
     <activeProfile>jboss-enterprise-maven-repository</activeProfile>
+    {% if rhdm_server_maven_local_repo_url is defined %}
+    <activeProfile>local-repository</activeProfile>
+    {% endif %}
   </activeProfiles>
 
 </settings>
