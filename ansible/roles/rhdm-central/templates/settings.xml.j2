@@ -14,11 +14,13 @@
   </proxies> -->
 
   <servers>
-    <!-- <server>
+    {% if rhdm_central_maven_jboss_enterprise_repo_pwd is defined and rhdm_central_maven_jboss_enterprise_repo_usr is defined %}
+    <server>
       <id>jboss-enterprise-maven-repository</id>
-      <username>${env.MAVEN_USR}</username>
-      <password>${env.MAVEN_PWD}</password>
-    </server> -->
+      <username>{{ rhdm_central_maven_jboss_enterprise_repo_usr }}</username>
+      <password>{{ rhdm_central_maven_jboss_enterprise_repo_pwd }}</password>
+    </server>
+    {% endif %}
     {% if rhdm_central_maven_local_repo_usr is defined and rhdm_central_maven_local_repo_pwd is defined %}
     <server>
       <id>local-repository</id>
@@ -47,8 +49,7 @@
       <repositories>
         <repository>
           <id>jboss-enterprise-maven-repository</id>
-          <url>https://maven.repository.redhat.com/ga/</url>
-          <!-- <url>my-proxy-repository-url</url> -->
+          <url>{{ rhdm_central_maven_jboss_enterprise_repo_url }}</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -60,8 +61,7 @@
       <pluginRepositories>
         <pluginRepository>
           <id>jboss-enterprise-maven-repository</id>
-          <url>https://maven.repository.redhat.com/ga/</url>
-          <!-- <url>my-proxy-repository-url</url> -->
+          <url>{{ rhdm_central_maven_jboss_enterprise_repo_url }}</url>
           <releases>
             <enabled>true</enabled>
           </releases>

@@ -24,3 +24,8 @@ jboss_eap_svc_java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetas
 #rhdm_server_maven_local_repo_url: http://host:port/repo
 #rhdm_server_maven_local_repo_usr: user
 #rhdm_server_maven_local_repo_pwd: password
+
+# Configure the JBoss Enterprise Maven repository.
+#rhdm_server_maven_jboss_enterprise_repo_url: http://host:port/repo
+#rhdm_server_maven_jboss_enterprise_repo_usr: user
+#rhdm_server_maven_jboss_enterprise_repo_pwd: password
