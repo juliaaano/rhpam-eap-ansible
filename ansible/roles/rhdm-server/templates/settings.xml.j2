@@ -21,14 +21,16 @@
     </server>
   </servers>
 
-  <!-- <mirrors>
+  <mirrors>
+    {% if rhdm_server_maven_mirror_central_repo_url is defined %}
     <mirror>
       <id>central-mirror</id>
       <name>Maven Central Mirror</name>
-      <url>my-proxy-repository-url</url>
+      <url>{{ rhdm_server_maven_mirror_central_repo_url }}</url>
       <mirrorOf>central</mirrorOf>
     </mirror>
-  </mirrors> -->
+    {% endif %}
+  </mirrors>
 
   <profiles>
 

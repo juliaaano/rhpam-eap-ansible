@@ -16,3 +16,6 @@ jboss_eap_svc_java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetas
 #rhdm_server_maven_remote_workbench_repo_url: http://workbench-host:8080/decision-central/maven2/
 #rhdm_server_maven_remote_workbench_repo_usr: adminUser
 #rhdm_server_maven_remote_workbench_repo_pwd: password
+
+# Use a Maven Central mirror repository.
+#rhdm_server_maven_mirror_central_repo_url: http://uk.maven.org/maven2
