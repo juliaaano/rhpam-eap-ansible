@@ -5,4 +5,4 @@
       - java-1.8.0-openjdk-devel
       - unzip
     state: latest
-  ignore_errors: yes
+  become: yes

@@ -51,3 +51,11 @@
       vars:
         jboss_socket_binding_port_offset_number: 0
         org_kie_server_controller: ws://localhost:8180/decision-central/websocket/controller
+  post_tasks:
+    - debug:
+        msg:
+          - "Run Central: nohup $RHDM_CENTRAL_HOME/bin/standalone.sh -c standalone-full.xml > central.log &"
+          - "Run Server: nohup $RHDM_SERVER_HOME/bin/standalone.sh -c standalone-full.xml > server.log &"
+          - "Central URL: http://{{ inventory_hostname }}:8180/decision-central"
+          - "Server URL: http://{{ inventory_hostname }}:8080/kie-server/services/rest/server"
+      tags: debug
