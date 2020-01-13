@@ -1,10 +1,7 @@
 ---
 # This playbook can install Red Hat Decision Manager in multiple flavours:
-# 1. RHDM Server (KIE Server) unmanaged.
-# 2. RHDM Server (KIE Server) managed, via the 'org_kie_server_controller' variable.
-# 3. RHDM Central (Business Central / Workbench).
-# 4. RHDM Central and Server on the same host.
 
+# 1. RHDM Central (Business Central / Workbench).
 - name: provision RHDM Central
   hosts: central
   tasks:
@@ -14,7 +11,15 @@
         name: jboss-eap-service
       vars:
         jboss_eap_svc_home: "{{ jboss_eap_home }}"
+  post_tasks:
+    - debug:
+        msg:
+          - "Installation dir: {{ rhdm_central_root }}."
+          - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/decision-central"
+          - "User admin username: {{ rhdm_central_admin_usr }}"
+          - "User admin password: {{ rhdm_central_admin_pwd }}"
 
+# 2. RHDM Server (KIE Server) unmanaged or managed, via the 'org_kie_server_controller' variable.
 - name: provision RHDM Server
   hosts: server
   tasks:
@@ -24,13 +29,25 @@
         name: jboss-eap-service
       vars:
         jboss_eap_svc_home: "{{ jboss_eap_home }}"
+  post_tasks:
+    - debug:
+        msg:
+          - "Installation dir: {{ rhdm_server_root }}."
+          - "URL: http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"
+          - "User kieserver username: {{ rhdm_server_kieserver_usr }}"
+          - "User kieserver password: {{ rhdm_server_kieserver_pwd }}"
 
+# 3. RHDM Central and Server on the same host.
+#    The KIE Server is in managed mode and automatically connected to Central's contoller instance.
 - name: provision RHDM Central and RHDM Server on the same host
   hosts: hybrid
   tasks:
     - include_role:
         name: rhdm-central
       vars:
-        jboss_socket_binding_port_offset: 100
+        jboss_socket_binding_port_offset_number: 100
     - include_role:
         name: rhdm-server
+      vars:
+        jboss_socket_binding_port_offset_number: 0
+        org_kie_server_controller: ws://localhost:8180/decision-central/websocket/controller

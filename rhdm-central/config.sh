@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOWNLOADS_URL=https://s3-ap-southeast-2.amazonaws.com/public.juliaaano
+DOWNLOADS_URL=https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhdm
 DOWNLOADS_DIR=./downloads
 INSTALLATION_DIR=./target
 RHDM_CENTRAL_ZIP=rhdm-7.5.0-decision-central-eap7-deployable.zip
