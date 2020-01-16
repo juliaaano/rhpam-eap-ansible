@@ -1,5 +1,5 @@
 ---
-# Variables here are applicable to hybrid host groups.
+# Variables here are applicable to 'hybrid' host groups.
 
 rhdm_central_controller_usr: controllerUsr
 rhdm_central_controller_pwd: controllerPwd

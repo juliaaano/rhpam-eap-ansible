@@ -1,21 +1,11 @@
 ---
-# Variables here are applicable to RHDM Server host groups.
+# Variables here are applicable to 'server' host group.
 
 # These include inherited opts from standalone.conf. Appending of JAVA_OPTS not possible, overwrite only.
 jboss_eap_svc_java_opts: "-Xms2048m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
 
 # Enable production mode.
 #org_kie_server_mode: production
-
-# Enable MANAGED mode for the KIE Server.
-#org_kie_server_controller: ws://controller-host:8080/decision-central/websocket/controller
-#org_kie_server_controller_user: controllerUsr
-#org_kie_server_controller_pwd: controllerPwd
-
-# Connect to remote RHDM Central Maven repo.
-#rhdm_server_maven_remote_workbench_repo_url: http://workbench-host:8080/decision-central/maven2/
-#rhdm_server_maven_remote_workbench_repo_usr: adminUser
-#rhdm_server_maven_remote_workbench_repo_pwd: password
 
 # Use a Maven Central mirror repository.
 #rhdm_server_maven_mirror_central_repo_url: http://uk.maven.org/maven2

@@ -21,7 +21,7 @@
 
 # 2. RHDM Server (KIE Server) unmanaged or managed, via the 'org_kie_server_controller' variable.
 - name: provision RHDM Server
-  hosts: server
+  hosts: server:managed
   tasks:
     - import_role:
         name: rhdm-server
