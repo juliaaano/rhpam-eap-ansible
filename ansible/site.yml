@@ -14,7 +14,7 @@
   post_tasks:
     - debug:
         msg:
-          - "Installation dir: {{ rhdm_central_root }}."
+          - "Installation dir: {{ rhdm_central_root }}"
           - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/decision-central"
           - "User admin username: {{ rhdm_central_admin_usr }}"
           - "User admin password: {{ rhdm_central_admin_pwd }}"
@@ -33,7 +33,7 @@
   post_tasks:
     - debug:
         msg:
-          - "Installation dir: {{ rhdm_server_root }}."
+          - "Installation dir: {{ rhdm_server_root }}"
           - "URL: http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"
           - "User kieserver username: {{ rhdm_server_kieserver_usr }}"
           - "User kieserver password: {{ rhdm_server_kieserver_pwd }}"

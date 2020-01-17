@@ -8,7 +8,6 @@
   unarchive:
     src: "{{ jboss_eap_temp }}/{{ jboss_eap_artifact_name }}"
     dest: "{{ jboss_eap_temp }}"
-    creates: "{{ jboss_eap_temp }}/{{ jboss_eap_path }}"
     remote_src: yes
 
 - name: recreate JBoss EAP home (required for patch)

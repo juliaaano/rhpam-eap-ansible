@@ -1,14 +1,15 @@
 [central]
-#127.0.0.1          ansible_connection=local   ansible_user=ec2-user
+#55.123.123.123     ansible_connection=ssh      ansible_user=ec2-user
 
 [server]
-#55.123.123.123     ansible_connection=ssh   ansible_user=ec2-user
+#55.123.123.123     ansible_connection=ssh      ansible_user=ec2-user
 
 [managed]
-#55.123.123.123     ansible_connection=ssh   ansible_user=ec2-user
+#55.123.123.123     ansible_connection=ssh      ansible_user=ec2-user
 
 [server:children]
 managed
 
 [hybrid]
 #127.0.0.1          ansible_connection=local
+#55.123.123.123     ansible_connection=ssh      ansible_user=ec2-user
