@@ -13,14 +13,20 @@
 - name: copy SecurityPolicy to {{ rhdm_server_home }}/bin/
   command:
     cmd: "cp -rf {{ rhdm_server_temp }}/SecurityPolicy/. {{ rhdm_server_home }}/bin/"
-    removes: "{{ rhdm_server_home }}/bin"
+    creates: "{{ rhdm_server_home }}/bin/security.policy"
 
 - name: copy kie-server.war to {{ rhdm_server_home }}/standalone/deployments/
   command:
     cmd: "cp -rf {{ rhdm_server_temp }}/kie-server.war {{ rhdm_server_home }}/standalone/deployments/"
     creates: "{{ rhdm_server_home }}/standalone/deployments/kie-server.war"
 
+- name: check if kie-server.war.deployed exists
+  stat:
+    path: "{{ rhdm_server_home }}/standalone/deployments/kie-server.war.deployed"
+  register: kieserver_deployed
+
 - name: create kie-server.war.dodeploy
   file:
     path: "{{ rhdm_server_home }}/standalone/deployments/kie-server.war.dodeploy"
     state: touch
+  when: not kieserver_deployed.stat.exists

@@ -16,4 +16,6 @@
     state: absent
 
 - name: install RHDM Central files on {{ rhdm_central_home }}
-  command: "cp -rf {{ rhdm_central_temp }}/{{ jboss_eap_path }}/. {{ rhdm_central_home }}/"
+  command:
+    cmd: "cp -rf {{ rhdm_central_temp }}/{{ jboss_eap_path }}/. {{ rhdm_central_home }}/"
+    creates: "{{ rhdm_central_home }}/standalone/deployments/decision-central.war"

@@ -25,11 +25,11 @@
   register: openssh_keypair
 
 - name: upload SSH public key to github.com
-  local_action:
-    module: github_key
+  github_key:
     name: rhdm-central
     token: "{{ rhdm_central_github_access_token }}"
     pubkey: "{{ openssh_keypair.public_key }}"
+  delegate_to: localhost
   when: rhdm_central_github_access_token is defined
 
 # Git hook required steps below, knows_hosts needed for the 'git push'.

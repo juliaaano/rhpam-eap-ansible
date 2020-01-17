@@ -5,5 +5,5 @@
       - java-1.8.0-openjdk-devel
       - unzip
       - git
-    state: latest
+    state: present
   become: yes

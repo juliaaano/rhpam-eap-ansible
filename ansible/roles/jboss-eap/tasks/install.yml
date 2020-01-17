@@ -10,16 +10,10 @@
     dest: "{{ jboss_eap_temp }}"
     remote_src: yes
 
-- name: recreate JBoss EAP home (required for patch)
-  block:
-    - name: remove JBoss EAP home {{ jboss_eap_home }}
-      file:
-        path: "{{ jboss_eap_home }}"
-        state: absent
-    - name: create JBoss EAP home {{ jboss_eap_home }}
-      file:
-        path: "{{ jboss_eap_home }}"
-        state: directory
+- name: create JBoss EAP home {{ jboss_eap_home }}
+  file:
+    path: "{{ jboss_eap_home }}"
+    state: directory
 
 - name: copy JBoss EAP to home {{ jboss_eap_home }}
   command:

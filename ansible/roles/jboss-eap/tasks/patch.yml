@@ -12,6 +12,13 @@
     pattern: "{{ jboss_eap_patch_artifact_pattern }}"
   register: jboss_eap_patch_artifact_files
 
+- name: create {{ jboss_eap_patches }} marker directory
+  file:
+    path: "{{ jboss_eap_patches }}"
+    state: directory
+
 - name: apply JBoss EAP patches
-  command: "{{ jboss_eap_home }}/bin/jboss-cli.sh --command='patch apply {{ item }}'"
+  shell:
+    cmd: "{{ jboss_eap_home }}/bin/jboss-cli.sh --command='patch apply {{ item }}' && touch {{ jboss_eap_patches }}/{{ item | basename }}.applied"
+    creates: "{{ jboss_eap_patches }}/{{ item | basename }}.applied"
   loop: "{{ jboss_eap_patch_artifact_files.files | sort(attribute='path') | map(attribute='path') | list }}"
