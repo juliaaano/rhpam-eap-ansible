@@ -18,6 +18,7 @@
           - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/decision-central"
           - "User admin username: {{ rhdm_central_admin_usr }}"
           - "User admin password: {{ rhdm_central_admin_pwd }}"
+          - "SSH key: {{ openssh_keypair.public_key }}"
 
 # 2. RHDM Server (KIE Server) unmanaged or managed, via the 'org_kie_server_controller' variable.
 - name: provision RHDM Server
