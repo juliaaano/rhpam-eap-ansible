@@ -27,3 +27,8 @@
     src: post-commit.j2
     dest: "{{ org_uberfire_nio_git_hooks }}/post-commit"
     mode: +x
+
+- name: create git-hook messages {{ appformer_git_hooks_bundle }}
+  template:
+    src: git-hook-messages.properties.j2
+    dest: "{{ appformer_git_hooks_bundle }}"

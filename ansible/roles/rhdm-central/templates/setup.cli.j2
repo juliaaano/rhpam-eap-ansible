@@ -21,6 +21,9 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=org.uberfire.nio.git.hooks:read-resource
         /system-property=org.uberfire.nio.git.hooks:add(value="{{ org_uberfire_nio_git_hooks }}")
     end-if
+    if (outcome != "success") of /system-property=appformer.git.hooks.bundle:read-resource
+        /system-property=appformer.git.hooks.bundle:add(value="{{ appformer_git_hooks_bundle }}")
+    end-if
     if (outcome != "success") of /system-property=org.uberfire.nio.git.dir:read-resource
         /system-property=org.uberfire.nio.git.dir:add(value="{{ org_uberfire_nio_git_dir }}")
     end-if
