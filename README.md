@@ -1,5 +1,22 @@
-# Red Hat Decision Manager Setup
+# Red Hat Decision Manager Ansible Installation
 
-This repository contains scripts to install Decision Central and Server as separate instances on standalone JBoss EAP deployments.
+Ansible playbook to install Decision Manager in multiple flavours.
 
-After the setup is complete and Decision Manager is running, a quickstart/example application can be imported from https://github.com/juliaaano/rhdm-quickstart.
+1. Check out the main playbook [site.yml](site.yml) for the plays.
+2. Review the variables in groups_vars to tune the installation.
+3. Assign hosts to the right group in the [hosts](hosts) inventory file.
+
+```
+ansible-playbook -i hosts site.yml
+```
+
+* JBoss EAP, RHDM distros and versions are kept in the role's defaults variables.
+
+### Advice
+
+Start and stop the JBoss systemd service:
+
+```
+ansible -i ./hosts server --become -m service -a "name=jbosseap7 state=stopped"
+ansible -i ./hosts server --become -m service -a "name=jbosseap7 state=started"
+```
