@@ -1,6 +1,6 @@
 ---
 rhdm_central_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhdm
-rhdm_central_artifact_name: rhdm-7.5.0-decision-central-eap7-deployable.zip
+rhdm_central_artifact_name: rhdm-7.6.0-decision-central-eap7-deployable.zip
 
 rhdm_central_temp: /tmp/rhdm-central
 rhdm_central_root: "{{ ansible_user_dir }}/rhdm-central"

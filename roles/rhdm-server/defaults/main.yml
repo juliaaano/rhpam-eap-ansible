@@ -1,6 +1,6 @@
 ---
 rhdm_server_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhdm
-rhdm_server_artifact_name: rhdm-7.5.0-kie-server-ee8.zip
+rhdm_server_artifact_name: rhdm-7.6.0-kie-server-ee8.zip
 
 rhdm_server_temp: /tmp/rhdm-server
 rhdm_server_root: "{{ ansible_user_dir }}/rhdm-server"
