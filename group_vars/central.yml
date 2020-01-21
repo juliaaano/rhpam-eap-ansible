@@ -10,6 +10,9 @@ rhdm_central_github_access_token: paste-github-token-here
 # The host to add to the known_hosts, so it allows 'git push' using SSH.
 rhdm_central_git_hooks_known_hosts: github.com
 
+# Should the post-commit script include the 'git push' command.
+rhdm_central_git_hooks_enable_push: true
+
 # Use a Maven Central mirror repository.
 #rhdm_central_maven_mirror_central_repo_url: http://uk.maven.org/maven2
 
