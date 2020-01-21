@@ -1,5 +1,5 @@
 ---
-- name: install software packages
+- name: install software packages in RHEL7
   yum:
     name:
       - java-1.8.0-openjdk-devel
@@ -7,3 +7,4 @@
       - git
     state: present
   become: yes
+  when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "7")
