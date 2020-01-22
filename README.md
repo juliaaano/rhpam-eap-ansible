@@ -12,7 +12,13 @@ ansible-playbook -i hosts site.yml
 
 * JBoss EAP, RHDM distros and versions are kept in the role's defaults variables.
 
-### Advice
+### A quickstart project
+
+Once you have the setup up and running, you can import in Central the following project to try it out:
+
+* https://github.com/juliaaano/rhdm-quickstart
+
+### General Advice
 
 Start and stop the JBoss systemd service:
 
