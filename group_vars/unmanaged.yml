@@ -1,0 +1,15 @@
+---
+# Variables here are applicable to 'unmanaged' host group.
+
+# Business rules artifacts / containers to start up.
+rhdm_server_containers:
+  - containerId: rhdm-quickstart
+    releaseId:
+      groupId: com.juliaaano
+      artifactId: rhdm-kjar
+      version: "[1.0.0,)"
+  # - containerId: example
+  #   releaseId:
+  #     groupId: com.example
+  #     artifactId: example
+  #     version: "[1.0.0,)"

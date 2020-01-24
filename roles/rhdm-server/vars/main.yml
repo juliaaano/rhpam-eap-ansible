@@ -1,1 +1,3 @@
 kie_maven_settings_custom: "{{ rhdm_server_data }}/settings.xml"
+org_kie_executor_disabled: "true"
+org_kie_server_repo: "{{ rhdm_server_data }}"

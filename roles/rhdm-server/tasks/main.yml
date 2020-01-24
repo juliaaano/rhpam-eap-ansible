@@ -10,3 +10,7 @@
   when: org_kie_server_controller is defined
 
 - import_tasks: install.yml
+
+- import_tasks: containers.yml
+  when: org_kie_server_controller is not defined
+  tags: containers

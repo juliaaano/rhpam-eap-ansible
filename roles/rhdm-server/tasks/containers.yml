@@ -1,0 +1,8 @@
+---
+# Deploy of kjar projects.
+
+- name: create {{ org_kie_server_id }}.xml state file
+  template:
+    src: kieserver.xml.j2
+    dest: "{{ rhdm_server_data }}/{{ org_kie_server_id }}.xml"
+  when: rhdm_server_containers is defined
