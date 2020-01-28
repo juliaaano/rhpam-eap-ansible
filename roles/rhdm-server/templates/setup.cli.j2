@@ -21,5 +21,11 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=org.kie.server.repo:read-resource
         /system-property=org.kie.server.repo:add(value="{{ org_kie_server_repo }}")
     end-if
+    if (outcome != "success") of /system-property=org.kie.server.mgmt.api.disabled:read-resource
+        /system-property=org.kie.server.mgmt.api.disabled:add(value={{ org_kie_server_mgmt_api_disabled }})
+    end-if
+    if (outcome != "success") of /system-property=org.kie.server.startup.strategy:read-resource
+        /system-property=org.kie.server.startup.strategy:add(value={{ org_kie_server_startup_strategy }})
+    end-if
 
 stop-embedded-server

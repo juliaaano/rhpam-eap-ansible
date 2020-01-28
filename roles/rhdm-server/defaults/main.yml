@@ -16,4 +16,7 @@ org_kie_server_http_port: 8080
 org_kie_server_https_port: 8443
 org_kie_server_location: "http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"
 
+org_kie_server_mgmt_api_disabled: "false"
+org_kie_server_startup_strategy: "ControllerBasedStartupStrategy"
+
 rhdm_server_maven_jboss_enterprise_repo_url: https://maven.repository.redhat.com/ga/

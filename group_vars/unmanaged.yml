@@ -1,6 +1,10 @@
 ---
 # Variables here are applicable to 'unmanaged' host group.
 
+# Immutable KIE Server, disables the mgmt API and uses local config file.
+org_kie_server_mgmt_api_disabled: "true"
+org_kie_server_startup_strategy: "LocalContainersStartupStrategy"
+
 # Business rules artifacts / containers to start up.
 rhdm_server_containers:
   - containerId: rhdm-quickstart
