@@ -1,0 +1,11 @@
+---
+- name: create JBoss EAP scripts {{ jboss_eap_home }}/scripts
+  file:
+    path: "{{ jboss_eap_home }}/scripts"
+    state: directory
+
+- name: create script change-log-level.sh
+  template:
+    src: change-log-level.sh.j2
+    dest: "{{ jboss_eap_home }}/scripts/change-log-level.sh"
+    mode: +x

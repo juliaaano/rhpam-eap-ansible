@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LOGGER=${1:-$LOGGER}
+LOG_LEVEL=${2:-INFO}
+
+{{ jboss_eap_home }}/bin/jboss-cli.sh --no-color-output --connect <<EOF
+if (outcome != "success") of /subsystem=logging/logger=${LOGGER}:read-resource
+/subsystem=logging/logger=${LOGGER}:add
+end-if
+/subsystem=logging/logger=${LOGGER}:write-attribute(name=level, value=${LOG_LEVEL})
+EOF

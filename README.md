@@ -23,6 +23,16 @@ Once you have the setup up and running, you can import in Central the following 
 Start and stop the JBoss systemd service:
 
 ```
-ansible -i ./hosts server --become -m service -a "name=jbosseap7 state=stopped"
-ansible -i ./hosts server --become -m service -a "name=jbosseap7 state=started"
+ansible -i ./hosts managed --become -m service -a "name=jbosseap7 state=stopped"
+ansible -i ./hosts managed --become -m service -a "name=jbosseap7 state=started"
+```
+
+Enable DEBUG or change the log level:
+
+```
+ansible -i ./hosts unmanaged -m shell -a "$JBOSS_EAP_HOME/scripts/change-log-level.sh org.kie DEBUG"
+ansible -i ./hosts unmanaged -m shell -a "$JBOSS_EAP_HOME/scripts/change-log-level.sh org.eclipse DEBUG"
+ansible -i ./hosts central -m shell -a "$JBOSS_EAP_HOME/scripts/change-log-level.sh org.drools DEBUG"
+ansible -i ./hosts central -m shell -a "$JBOSS_EAP_HOME/scripts/change-log-level.sh org.guvnor DEBUG"
+ansible -i ./hosts central -m shell -a "$JBOSS_EAP_HOME/scripts/change-log-level.sh org.uberfire DEBUG"
 ```
