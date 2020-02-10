@@ -5,7 +5,7 @@
 jboss_eap_svc_java_opts: "-Xms4096m -Xmx4096m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
 
 # GitHub access token with permission to list and create public keys.
-rhdm_central_github_access_token: paste-github-token-here
+#rhdm_central_github_access_token: paste-github-token-here
 
 # The host to add to the known_hosts, so it allows 'git push' using SSH.
 rhdm_central_git_hooks_known_hosts: github.com
