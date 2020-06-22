@@ -46,17 +46,18 @@
     - include_role:
         name: rhdm-central
       vars:
-        jboss_socket_binding_port_offset_number: 100
+        jboss_socket_binding_port_offset_number: 0
     - include_role:
         name: rhdm-server
       vars:
-        jboss_socket_binding_port_offset_number: 0
-        org_kie_server_controller: ws://localhost:8180/decision-central/websocket/controller
+        jboss_socket_binding_port_offset_number: 100
+        org_kie_server_controller: ws://localhost:8080/decision-central/websocket/controller
+        org_kie_server_http_port: 8180
   post_tasks:
     - debug:
         msg:
           - "Run Central: $RHDM_CENTRAL_HOME/bin/standalone.sh -c standalone-full.xml"
           - "Run Server: $RHDM_SERVER_HOME/bin/standalone.sh -c standalone-full.xml"
-          - "Central URL: http://{{ inventory_hostname }}:8180/decision-central"
-          - "Server URL: http://{{ inventory_hostname }}:8080/kie-server/services/rest/server"
+          - "Central URL: http://{{ inventory_hostname }}:8080/decision-central"
+          - "Server URL: http://{{ inventory_hostname }}:8180/kie-server/services/rest/server"
       tags: debug
