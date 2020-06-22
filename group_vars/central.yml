@@ -11,7 +11,7 @@ jboss_eap_svc_java_opts: "-Xms4096m -Xmx4096m -XX:MetaspaceSize=96M -XX:MaxMetas
 rhdm_central_git_hooks_known_hosts: github.com
 
 # Should the post-commit script include the 'git push' command.
-rhdm_central_git_hooks_enable_push: true
+rhdm_central_git_hooks_enable_push: false
 
 # Use a Maven Central mirror repository.
 #rhdm_central_maven_mirror_central_repo_url: http://uk.maven.org/maven2
