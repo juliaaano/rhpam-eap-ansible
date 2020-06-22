@@ -52,7 +52,7 @@
       vars:
         jboss_socket_binding_port_offset_number: 100
         org_kie_server_controller: ws://localhost:8080/decision-central/websocket/controller
-        org_kie_server_http_port: 8180
+        # org_kie_server_http_port: 8180 FIXME ends up as 8280
   post_tasks:
     - debug:
         msg:
