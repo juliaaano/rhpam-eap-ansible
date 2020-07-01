@@ -2,7 +2,7 @@
 dependencies:
   - role: jboss-eap
     vars:
-      jboss_eap_root: "{{ rhdm_server_root }}"
+      jboss_eap_root: "{{ rhpam_server_root }}"
       jboss_http_port_number: "{{ org_kie_server_http_port }}"
       jboss_https_port_number: "{{ org_kie_server_https_port }}"
 
@@ -19,7 +19,7 @@ galaxy_info:
     - java
     - jboss
     - eap
-    - rhdm
+    - rhpam
     - brms
     - drools
     - kieserver

@@ -1,14 +1,14 @@
 ---
-rhdm_server_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhdm
-rhdm_server_artifact_name: rhdm-7.6.0-kie-server-ee8.zip
+rhpam_server_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhpam
+rhpam_server_artifact_name: rhpam-7.6.0-kie-server-ee8.zip
 
-rhdm_server_temp: /tmp/rhdm-server
-rhdm_server_root: "{{ ansible_user_dir }}/rhdm-server"
-rhdm_server_home: "{{ jboss_eap_home }}" # From role jboss-eap
-rhdm_server_data: "{{ rhdm_server_root }}/data"
+rhpam_server_temp: /tmp/rhpam-server
+rhpam_server_root: "{{ ansible_user_dir }}/rhpam-server"
+rhpam_server_home: "{{ jboss_eap_home }}" # From role jboss-eap
+rhpam_server_data: "{{ rhpam_server_root }}/data"
 
-rhdm_server_kieserver_usr: kieserver
-rhdm_server_kieserver_pwd: kieserver
+rhpam_server_kieserver_usr: kieserver
+rhpam_server_kieserver_pwd: kieserver
 
 org_kie_server_id: kieserver-default
 org_kie_server_mode: development
@@ -19,4 +19,4 @@ org_kie_server_location: "http://{{ inventory_hostname }}:{{ org_kie_server_http
 org_kie_server_mgmt_api_disabled: "false"
 org_kie_server_startup_strategy: "ControllerBasedStartupStrategy"
 
-rhdm_server_maven_jboss_enterprise_repo_url: https://maven.repository.redhat.com/ga/
+rhpam_server_maven_jboss_enterprise_repo_url: https://maven.repository.redhat.com/ga/

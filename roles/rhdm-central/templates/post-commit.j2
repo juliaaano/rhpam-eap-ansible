@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Execute post-commit git hook from $(pwd)"
-{% if rhdm_central_git_hooks_enable_push is sameas true %}
+{% if rhpam_central_git_hooks_enable_push is sameas true %}
 git push origin master
 {% endif %}

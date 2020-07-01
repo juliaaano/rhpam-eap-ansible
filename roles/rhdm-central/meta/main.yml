@@ -2,7 +2,7 @@
 dependencies:
   - role: jboss-eap
     vars:
-      jboss_eap_root: "{{ rhdm_central_root }}"
+      jboss_eap_root: "{{ rhpam_central_root }}"
 
 galaxy_info:
   author: juliaaano
@@ -17,7 +17,7 @@ galaxy_info:
     - java
     - jboss
     - eap
-    - rhdm
+    - rhpam
     - brms
     - drools
     - workbench

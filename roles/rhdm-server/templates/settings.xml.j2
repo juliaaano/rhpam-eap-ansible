@@ -15,32 +15,32 @@
 
   <servers>
     <server>
-      <id>rhdm</id>
-      <username>{{ rhdm_server_maven_remote_workbench_repo_usr | default('empty') }}</username>
-      <password>{{ rhdm_server_maven_remote_workbench_repo_pwd | default('empty') }}</password>
+      <id>rhpam</id>
+      <username>{{ rhpam_server_maven_remote_workbench_repo_usr | default('empty') }}</username>
+      <password>{{ rhpam_server_maven_remote_workbench_repo_pwd | default('empty') }}</password>
     </server>
-    {% if rhdm_server_maven_jboss_enterprise_repo_pwd is defined and rhdm_server_maven_jboss_enterprise_repo_usr is defined %}
+    {% if rhpam_server_maven_jboss_enterprise_repo_pwd is defined and rhpam_server_maven_jboss_enterprise_repo_usr is defined %}
     <server>
       <id>jboss-enterprise-maven-repository</id>
-      <username>{{ rhdm_server_maven_jboss_enterprise_repo_usr }}</username>
-      <password>{{ rhdm_server_maven_jboss_enterprise_repo_pwd }}</password>
+      <username>{{ rhpam_server_maven_jboss_enterprise_repo_usr }}</username>
+      <password>{{ rhpam_server_maven_jboss_enterprise_repo_pwd }}</password>
     </server>
     {% endif %}
-    {% if rhdm_server_maven_local_repo_usr is defined and rhdm_server_maven_local_repo_pwd is defined %}
+    {% if rhpam_server_maven_local_repo_usr is defined and rhpam_server_maven_local_repo_pwd is defined %}
     <server>
       <id>local-repository</id>
-      <username>{{ rhdm_server_maven_local_repo_usr }}</username>
-      <password>{{ rhdm_server_maven_local_repo_pwd }}</password>
+      <username>{{ rhpam_server_maven_local_repo_usr }}</username>
+      <password>{{ rhpam_server_maven_local_repo_pwd }}</password>
     </server>
     {% endif %}
   </servers>
 
   <mirrors>
-    {% if rhdm_server_maven_mirror_central_repo_url is defined %}
+    {% if rhpam_server_maven_mirror_central_repo_url is defined %}
     <mirror>
       <id>central-mirror</id>
       <name>Maven Central Mirror</name>
-      <url>{{ rhdm_server_maven_mirror_central_repo_url }}</url>
+      <url>{{ rhpam_server_maven_mirror_central_repo_url }}</url>
       <mirrorOf>central</mirrorOf>
     </mirror>
     {% endif %}
@@ -50,11 +50,11 @@
 
     <!-- Configure the Decision Central (Workbench) Maven repository -->
     <profile>
-      <id>rhdm</id>
+      <id>rhpam</id>
       <repositories>
         <repository>
-          <id>rhdm</id>
-          <url>{{ rhdm_server_maven_remote_workbench_repo_url | default('empty') }}</url>
+          <id>rhpam</id>
+          <url>{{ rhpam_server_maven_remote_workbench_repo_url | default('empty') }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -73,7 +73,7 @@
       <repositories>
         <repository>
           <id>jboss-enterprise-maven-repository</id>
-          <url>{{ rhdm_server_maven_jboss_enterprise_repo_url }}</url>
+          <url>{{ rhpam_server_maven_jboss_enterprise_repo_url }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>daily</updatePolicy>
@@ -86,7 +86,7 @@
       <pluginRepositories>
         <pluginRepository>
           <id>jboss-enterprise-maven-repository</id>
-          <url>{{ rhdm_server_maven_jboss_enterprise_repo_url }}</url>
+          <url>{{ rhpam_server_maven_jboss_enterprise_repo_url }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>daily</updatePolicy>
@@ -104,7 +104,7 @@
       <repositories>
         <repository>
           <id>local-repository</id>
-          <url>{{ rhdm_server_maven_local_repo_url | default('empty') }}</url>
+          <url>{{ rhpam_server_maven_local_repo_url | default('empty') }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -120,11 +120,11 @@
   </profiles>
 
   <activeProfiles>
-    {% if rhdm_server_maven_remote_workbench_repo_url is defined %}
-    <activeProfile>rhdm</activeProfile>
+    {% if rhpam_server_maven_remote_workbench_repo_url is defined %}
+    <activeProfile>rhpam</activeProfile>
     {% endif %}
     <activeProfile>jboss-enterprise-maven-repository</activeProfile>
-    {% if rhdm_server_maven_local_repo_url is defined %}
+    {% if rhpam_server_maven_local_repo_url is defined %}
     <activeProfile>local-repository</activeProfile>
     {% endif %}
   </activeProfiles>

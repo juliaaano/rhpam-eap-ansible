@@ -5,4 +5,4 @@
   template:
     src: kieserver.xml.j2
     dest: "{{ org_kie_server_repo }}/{{ org_kie_server_id }}.xml"
-  when: rhdm_server_containers is defined
+  when: rhpam_server_containers is defined

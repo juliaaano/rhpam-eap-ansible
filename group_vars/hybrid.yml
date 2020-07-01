@@ -1,9 +1,9 @@
 ---
 # Variables here are applicable to 'hybrid' host groups.
 
-rhdm_central_controller_usr: controllerUsr
-rhdm_central_controller_pwd: controllerPwd
+rhpam_central_controller_usr: controllerUsr
+rhpam_central_controller_pwd: controllerPwd
 
 # Enable MANAGED mode for the KIE Server.
-org_kie_server_controller_user: "{{ rhdm_central_controller_usr }}"
-org_kie_server_controller_pwd: "{{ rhdm_central_controller_pwd }}"
+org_kie_server_controller_user: "{{ rhpam_central_controller_usr }}"
+org_kie_server_controller_pwd: "{{ rhpam_central_controller_pwd }}"

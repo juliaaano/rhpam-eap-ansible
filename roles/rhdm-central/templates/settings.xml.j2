@@ -14,28 +14,28 @@
   </proxies> -->
 
   <servers>
-    {% if rhdm_central_maven_jboss_enterprise_repo_pwd is defined and rhdm_central_maven_jboss_enterprise_repo_usr is defined %}
+    {% if rhpam_central_maven_jboss_enterprise_repo_pwd is defined and rhpam_central_maven_jboss_enterprise_repo_usr is defined %}
     <server>
       <id>jboss-enterprise-maven-repository</id>
-      <username>{{ rhdm_central_maven_jboss_enterprise_repo_usr }}</username>
-      <password>{{ rhdm_central_maven_jboss_enterprise_repo_pwd }}</password>
+      <username>{{ rhpam_central_maven_jboss_enterprise_repo_usr }}</username>
+      <password>{{ rhpam_central_maven_jboss_enterprise_repo_pwd }}</password>
     </server>
     {% endif %}
-    {% if rhdm_central_maven_local_repo_usr is defined and rhdm_central_maven_local_repo_pwd is defined %}
+    {% if rhpam_central_maven_local_repo_usr is defined and rhpam_central_maven_local_repo_pwd is defined %}
     <server>
       <id>local-repository</id>
-      <username>{{ rhdm_central_maven_local_repo_usr }}</username>
-      <password>{{ rhdm_central_maven_local_repo_pwd }}</password>
+      <username>{{ rhpam_central_maven_local_repo_usr }}</username>
+      <password>{{ rhpam_central_maven_local_repo_pwd }}</password>
     </server>
     {% endif %}
   </servers>
 
   <mirrors>
-    {% if rhdm_central_maven_mirror_central_repo_url is defined %}
+    {% if rhpam_central_maven_mirror_central_repo_url is defined %}
     <mirror>
       <id>central-mirror</id>
       <name>Maven Central Mirror</name>
-      <url>{{ rhdm_central_maven_mirror_central_repo_url }}</url>
+      <url>{{ rhpam_central_maven_mirror_central_repo_url }}</url>
       <mirrorOf>central</mirrorOf>
     </mirror>
     {% endif %}
@@ -49,7 +49,7 @@
       <repositories>
         <repository>
           <id>jboss-enterprise-maven-repository</id>
-          <url>{{ rhdm_central_maven_jboss_enterprise_repo_url }}</url>
+          <url>{{ rhpam_central_maven_jboss_enterprise_repo_url }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>daily</updatePolicy>
@@ -62,7 +62,7 @@
       <pluginRepositories>
         <pluginRepository>
           <id>jboss-enterprise-maven-repository</id>
-          <url>{{ rhdm_central_maven_jboss_enterprise_repo_url }}</url>
+          <url>{{ rhpam_central_maven_jboss_enterprise_repo_url }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>daily</updatePolicy>
@@ -80,7 +80,7 @@
       <repositories>
         <repository>
           <id>local-repository</id>
-          <url>{{ rhdm_central_maven_local_repo_url | default('empty') }}</url>
+          <url>{{ rhpam_central_maven_local_repo_url | default('empty') }}</url>
           <releases>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
@@ -97,7 +97,7 @@
 
   <activeProfiles>
     <activeProfile>jboss-enterprise-maven-repository</activeProfile>
-    {% if rhdm_central_maven_local_repo_url is defined %}
+    {% if rhpam_central_maven_local_repo_url is defined %}
     <activeProfile>local-repository</activeProfile>
     {% endif %}
   </activeProfiles>

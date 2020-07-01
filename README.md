@@ -10,13 +10,13 @@ Ansible playbook to install Decision Manager in multiple flavours.
 ansible-playbook -i hosts site.yml
 ```
 
-* JBoss EAP, RHDM distros and versions are kept in the role's defaults variables.
+* JBoss EAP, RHPAM distros and versions are kept in the role's defaults variables.
 
 ### A quickstart project
 
 Once you have the setup up and running, you can import in Central the following project to try it out:
 
-* https://github.com/juliaaano/rhdm-quickstart
+* https://github.com/juliaaano/rhpam-quickstart
 
 ### General Advice
 

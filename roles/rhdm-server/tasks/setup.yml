@@ -1,11 +1,11 @@
 ---
-- name: create {{ rhdm_server_data }} directory
+- name: create {{ rhpam_server_data }} directory
   file:
-    path: "{{ rhdm_server_data }}"
+    path: "{{ rhpam_server_data }}"
     state: directory
 
-- name: add kieserver user {{ rhdm_server_kieserver_usr }}
-  command: "{{ rhdm_server_home }}/bin/add-user.sh -a --user {{ rhdm_server_kieserver_usr }} --password {{ rhdm_server_kieserver_pwd }} --role kie-server"
+- name: add kieserver user {{ rhpam_server_kieserver_usr }}
+  command: "{{ rhpam_server_home }}/bin/add-user.sh -a --user {{ rhpam_server_kieserver_usr }} --password {{ rhpam_server_kieserver_pwd }} --role kie-server"
 
 - name: create {{ kie_maven_settings_custom }}
   template:
@@ -15,7 +15,7 @@
 - name: create setup.cli
   template:
     src: setup.cli.j2
-    dest: "{{ rhdm_server_temp }}/setup.cli"
+    dest: "{{ rhpam_server_temp }}/setup.cli"
 
 - name: run setup.cli JBoss configuration
-  command: "{{ rhdm_server_home }}/bin/jboss-cli.sh --file={{ rhdm_server_temp }}/setup.cli"
+  command: "{{ rhpam_server_home }}/bin/jboss-cli.sh --file={{ rhpam_server_temp }}/setup.cli"
