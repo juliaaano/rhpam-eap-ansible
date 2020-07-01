@@ -15,7 +15,7 @@
     - debug:
         msg:
           - "Installation dir: {{ rhpam_central_root }}"
-          - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/decision-central"
+          - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/business-central"
           - "User admin username: {{ rhpam_central_admin_usr }}"
           - "User admin password: {{ rhpam_central_admin_pwd }}"
           - "SSH key: {{ openssh_keypair.public_key }}"
@@ -51,13 +51,13 @@
         name: rhpam-server
       vars:
         jboss_socket_binding_port_offset_number: 100
-        org_kie_server_controller: ws://localhost:8080/decision-central/websocket/controller
+        org_kie_server_controller: ws://localhost:8080/business-central/websocket/controller
         # org_kie_server_http_port: 8180 FIXME ends up as 8280
   post_tasks:
     - debug:
         msg:
           - "Run Central: $RHPAM_CENTRAL_HOME/bin/standalone.sh -c standalone-full.xml"
           - "Run Server: $RHPAM_SERVER_HOME/bin/standalone.sh -c standalone-full.xml"
-          - "Central URL: http://{{ inventory_hostname }}:8080/decision-central"
+          - "Central URL: http://{{ inventory_hostname }}:8080/business-central"
           - "Server URL: http://{{ inventory_hostname }}:8180/kie-server/services/rest/server"
       tags: debug
