@@ -1,6 +1,6 @@
-# Red Hat Decision Manager Ansible Installation
+# Red Hat Process Automation Manager Ansible Installation
 
-Ansible playbook to install Decision Manager in multiple flavours.
+Ansible playbook to install Process Automation Manager in multiple flavours.
 
 1. Check out the main playbook [site.yml](site.yml) for the plays.
 2. Review the variables in groups_vars to tune the installation.

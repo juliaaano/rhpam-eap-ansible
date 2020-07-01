@@ -18,4 +18,4 @@
 - name: install RHPAM Central files on {{ rhpam_central_home }}
   command:
     cmd: "cp -rf {{ rhpam_central_temp }}/{{ jboss_eap_path }}/. {{ rhpam_central_home }}/"
-    creates: "{{ rhpam_central_home }}/standalone/deployments/decision-central.war"
+    creates: "{{ rhpam_central_home }}/standalone/deployments/business-central.war"

@@ -1,10 +1,10 @@
 embed-server --server-config=standalone-full.xml
 
     if (outcome != "success") of /system-property=org.jbpm.server.ext.disabled:read-resource
-        /system-property=org.jbpm.server.ext.disabled:add(value="true")
+        /system-property=org.jbpm.server.ext.disabled:add(value="{{ org_jbpm_server_ext_disabled }}")
     end-if
     if (outcome != "success") of /system-property=org.optaplanner.server.ext.disabled:read-resource
-        /system-property=org.optaplanner.server.ext.disabled:add(value="true")
+        /system-property=org.optaplanner.server.ext.disabled:add(value="{{ org_optaplanner_server_ext_disabled }}")
     end-if
     if (outcome != "success") of /system-property=org.kie.executor.disabled:read-resource
         /system-property=org.kie.executor.disabled:add(value="{{ org_kie_executor_disabled }}")

@@ -8,7 +8,7 @@ dependencies:
 
 galaxy_info:
   author: juliaaano
-  description: Red Hat Decision Manager Decision Server - KIE Server.
+  description: Red Hat PAM Decision Server - KIE Server.
   license: "license (MIT)"
   min_ansible_version: 2.9
   platforms:

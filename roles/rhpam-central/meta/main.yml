@@ -6,7 +6,7 @@ dependencies:
 
 galaxy_info:
   author: juliaaano
-  description: Red Hat Decision Manager Business Central - The Workbench.
+  description: Red Hat PAM Business Central - The Workbench.
   license: "license (MIT)"
   min_ansible_version: 2.9
   platforms:

@@ -1,5 +1,5 @@
 ---
-# This playbook can install Red Hat Decision Manager in multiple flavours:
+# This playbook can install Red Hat Process Automation Manager in multiple flavours:
 
 # 1. RHPAM Central (Business Central / Workbench).
 - name: provision RHPAM Central
