@@ -1,12 +1,15 @@
 ---
 # Variables here are applicable to 'managed' host group.
 
+# kie-server role user needs to match logged in user in BC, otherwise it cannot access process data.
+rhpam_server_kieserver_usr: adminUser
+
 # Enable MANAGED mode for the KIE Server.
-org_kie_server_controller: ws://controller-host:8080/decision-central/websocket/controller
+org_kie_server_controller: ws://controller-host:8080/business-central/websocket/controller
 org_kie_server_controller_user: controllerUsr
 org_kie_server_controller_pwd: controllerPwd
 
-# Connect to remote RHDM Central Maven repo.
-rhdm_server_maven_remote_workbench_repo_url: http://workbench-host:8080/decision-central/maven2/
-rhdm_server_maven_remote_workbench_repo_usr: adminUser
-rhdm_server_maven_remote_workbench_repo_pwd: password
+# Connect to remote RHPAM Central Maven repo.
+rhpam_server_maven_remote_workbench_repo_url: http://workbench-host:8080/business-central/maven2/
+rhpam_server_maven_remote_workbench_repo_usr: adminUser
+rhpam_server_maven_remote_workbench_repo_pwd: password

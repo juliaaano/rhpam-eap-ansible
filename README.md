@@ -1,6 +1,6 @@
-# Red Hat Decision Manager Ansible Installation
+# Red Hat Process Automation Manager Ansible Installation
 
-Ansible playbook to install Decision Manager in multiple flavours.
+Ansible playbook to install Process Automation Manager in multiple flavours.
 
 1. Check out the main playbook [site.yml](site.yml) for the plays.
 2. Review the variables in groups_vars to tune the installation.
@@ -10,13 +10,13 @@ Ansible playbook to install Decision Manager in multiple flavours.
 ansible-playbook -i hosts site.yml
 ```
 
-* JBoss EAP, RHDM distros and versions are kept in the role's defaults variables.
+* JBoss EAP, RHPAM distros and versions are kept in the role's defaults variables.
 
 ### A quickstart project
 
 Once you have the setup up and running, you can import in Central the following project to try it out:
 
-* https://github.com/juliaaano/rhdm-quickstart
+* https://github.com/juliaaano/rhpam-quickstart
 
 ### General Advice
 

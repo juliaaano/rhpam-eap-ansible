@@ -1,0 +1,5 @@
+kie_maven_settings_custom: "{{ rhpam_server_data }}/settings.xml"
+org_jbpm_server_ext_disabled: "false"
+org_optaplanner_server_ext_disabled: "false"
+org_kie_executor_disabled: "false"
+org_kie_server_repo: "{{ rhpam_server_data }}"

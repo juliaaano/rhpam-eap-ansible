@@ -1,0 +1,15 @@
+---
+rhpam_central_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhpam
+rhpam_central_artifact_name: rhpam-7.7.1-business-central-eap7-deployable.zip
+
+rhpam_central_temp: /tmp/rhpam-central
+rhpam_central_root: "{{ ansible_user_dir }}/rhpam-central"
+rhpam_central_home: "{{ jboss_eap_home }}" # From role jboss-eap
+rhpam_central_data: "{{ rhpam_central_root }}/data"
+
+rhpam_central_admin_usr: adminUser
+rhpam_central_admin_pwd: password
+rhpam_central_controller_usr: controllerUsr
+rhpam_central_controller_pwd: controllerPwd
+
+rhpam_central_maven_jboss_enterprise_repo_url: https://maven.repository.redhat.com/ga/

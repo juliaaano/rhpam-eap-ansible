@@ -1,0 +1,8 @@
+---
+- name: create setup-managed.cli
+  template:
+    src: setup-managed.cli.j2
+    dest: "{{ rhpam_server_temp }}/setup-managed.cli"
+
+- name: run setup-managed.cli JBoss configuration
+  command: "{{ rhpam_server_home }}/bin/jboss-cli.sh --file={{ rhpam_server_temp }}/setup-managed.cli"

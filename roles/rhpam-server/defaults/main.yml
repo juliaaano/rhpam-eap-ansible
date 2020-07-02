@@ -1,0 +1,22 @@
+---
+rhpam_server_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhpam
+rhpam_server_artifact_name: rhpam-7.7.1-kie-server-ee8.zip
+
+rhpam_server_temp: /tmp/rhpam-server
+rhpam_server_root: "{{ ansible_user_dir }}/rhpam-server"
+rhpam_server_home: "{{ jboss_eap_home }}" # From role jboss-eap
+rhpam_server_data: "{{ rhpam_server_root }}/data"
+
+rhpam_server_kieserver_usr: kieserverUser
+rhpam_server_kieserver_pwd: password
+
+org_kie_server_id: kieserver-default
+org_kie_server_mode: development
+org_kie_server_http_port: 8080
+org_kie_server_https_port: 8443
+org_kie_server_location: "http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"
+
+org_kie_server_mgmt_api_disabled: "false"
+org_kie_server_startup_strategy: "ControllerBasedStartupStrategy"
+
+rhpam_server_maven_jboss_enterprise_repo_url: https://maven.repository.redhat.com/ga/

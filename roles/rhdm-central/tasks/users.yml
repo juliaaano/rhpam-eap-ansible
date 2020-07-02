@@ -1,6 +1,0 @@
----
-- name: add admin user {{ rhdm_central_admin_usr }}
-  command: "{{ rhdm_central_home }}/bin/add-user.sh -a --user {{ rhdm_central_admin_usr }} --password {{ rhdm_central_admin_pwd }} --role admin"
-
-- name: add controller user {{ rhdm_central_controller_usr }}
-  command: "{{ rhdm_central_home }}/bin/add-user.sh -a --user {{ rhdm_central_controller_usr }} --password {{ rhdm_central_controller_pwd }} --role rest-all"

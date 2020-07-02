@@ -8,6 +8,8 @@ jboss_eap_patch_artifact_names:
   - jboss-eap-7.2.4-patch.zip
   - jboss-eap-7.2.5-patch.zip
   - jboss-eap-7.2.6-patch.zip
+  - jboss-eap-7.2.7-patch.zip
+  - jboss-eap-7.2.8-patch.zip
 jboss_eap_patch_artifact_pattern: "*-patch.zip"
 
 # The jboss_eap_path needs to match the directory inside the distro zip file.

@@ -6,11 +6,11 @@ org_kie_server_mgmt_api_disabled: "true"
 org_kie_server_startup_strategy: "LocalContainersStartupStrategy"
 
 # Business rules artifacts / containers to start up.
-rhdm_server_containers:
-  - containerId: rhdm-quickstart
+rhpam_server_containers:
+  - containerId: rhpam-quickstart
     releaseId:
       groupId: com.juliaaano
-      artifactId: rhdm-kjar
+      artifactId: rhpam-kjar
       version: "[1.0.0,)"
   # - containerId: example
   #   releaseId:

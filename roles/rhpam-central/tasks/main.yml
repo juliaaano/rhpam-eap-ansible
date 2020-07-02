@@ -1,0 +1,11 @@
+---
+- name: create {{ rhpam_central_temp }} installation directory
+  file:
+    path: "{{ rhpam_central_temp }}"
+    state: directory
+
+- import_tasks: install.yml
+
+- import_tasks: setup.yml
+
+- import_tasks: users.yml

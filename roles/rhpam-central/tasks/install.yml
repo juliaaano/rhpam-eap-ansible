@@ -1,0 +1,21 @@
+---
+- name: download RHPAM Central into {{ rhpam_central_temp }}
+  get_url:
+    url: "{{ rhpam_central_artifact_source }}/{{ rhpam_central_artifact_name }}"
+    dest: "{{ rhpam_central_temp }}/{{ rhpam_central_artifact_name }}"
+
+- name: extract RHPAM Central into {{ rhpam_central_temp }}
+  unarchive:
+    src: "{{ rhpam_central_temp }}/{{ rhpam_central_artifact_name }}"
+    dest: "{{ rhpam_central_temp }}"
+    remote_src: yes
+
+- name: remove extracted standalone-full.xml to avoid overwrite
+  file:
+    path: "{{ rhpam_central_temp }}/{{ jboss_eap_path }}/standalone/configuration/standalone-full.xml"
+    state: absent
+
+- name: install RHPAM Central files on {{ rhpam_central_home }}
+  command:
+    cmd: "cp -rf {{ rhpam_central_temp }}/{{ jboss_eap_path }}/. {{ rhpam_central_home }}/"
+    creates: "{{ rhpam_central_home }}/standalone/deployments/business-central.war"

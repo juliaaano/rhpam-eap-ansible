@@ -1,0 +1,8 @@
+---
+# Deploy of kjar projects.
+
+- name: create {{ org_kie_server_id }}.xml state file
+  template:
+    src: kieserver.xml.j2
+    dest: "{{ org_kie_server_repo }}/{{ org_kie_server_id }}.xml"
+  when: rhpam_server_containers is defined

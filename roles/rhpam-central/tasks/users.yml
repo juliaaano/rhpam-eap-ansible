@@ -1,0 +1,6 @@
+---
+- name: add admin user {{ rhpam_central_admin_usr }}
+  command: "{{ rhpam_central_home }}/bin/add-user.sh -a --user {{ rhpam_central_admin_usr }} --password {{ rhpam_central_admin_pwd }} --role admin"
+
+- name: add controller user {{ rhpam_central_controller_usr }}
+  command: "{{ rhpam_central_home }}/bin/add-user.sh -a --user {{ rhpam_central_controller_usr }} --password {{ rhpam_central_controller_pwd }} --role rest-all"

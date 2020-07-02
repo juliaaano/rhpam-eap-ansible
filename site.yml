@@ -1,12 +1,12 @@
 ---
-# This playbook can install Red Hat Decision Manager in multiple flavours:
+# This playbook can install Red Hat Process Automation Manager in multiple flavours:
 
-# 1. RHDM Central (Business Central / Workbench).
-- name: provision RHDM Central
+# 1. RHPAM Central (Business Central / Workbench).
+- name: provision RHPAM Central
   hosts: central
   tasks:
     - import_role:
-        name: rhdm-central
+        name: rhpam-central
     - import_role:
         name: jboss-eap-service
       vars:
@@ -14,18 +14,18 @@
   post_tasks:
     - debug:
         msg:
-          - "Installation dir: {{ rhdm_central_root }}"
-          - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/decision-central"
-          - "User admin username: {{ rhdm_central_admin_usr }}"
-          - "User admin password: {{ rhdm_central_admin_pwd }}"
+          - "Installation dir: {{ rhpam_central_root }}"
+          - "URL: http://{{ inventory_hostname }}:{{ jboss_http_port_number }}/business-central"
+          - "User admin username: {{ rhpam_central_admin_usr }}"
+          - "User admin password: {{ rhpam_central_admin_pwd }}"
           - "SSH key: {{ openssh_keypair.public_key }}"
 
-# 2. RHDM Server (KIE Server) unmanaged or managed, via the 'org_kie_server_controller' variable.
-- name: provision RHDM Server
+# 2. RHPAM Server (KIE Server) unmanaged or managed, via the 'org_kie_server_controller' variable.
+- name: provision RHPAM Server
   hosts: managed:unmanaged
   tasks:
     - import_role:
-        name: rhdm-server
+        name: rhpam-server
     - import_role:
         name: jboss-eap-service
       vars:
@@ -33,31 +33,28 @@
   post_tasks:
     - debug:
         msg:
-          - "Installation dir: {{ rhdm_server_root }}"
+          - "Installation dir: {{ rhpam_server_root }}"
           - "URL: http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"
-          - "User kieserver username: {{ rhdm_server_kieserver_usr }}"
-          - "User kieserver password: {{ rhdm_server_kieserver_pwd }}"
+          - "User kieserver username: {{ rhpam_server_kieserver_usr }}"
+          - "User kieserver password: {{ rhpam_server_kieserver_pwd }}"
 
-# 3. RHDM Central and Server on the same host.
+# 3. RHPAM Central and Server on the same host.
 #    The KIE Server is in managed mode and automatically connected to Central's contoller instance.
-- name: provision RHDM Central and RHDM Server on the same host
+- name: provision RHPAM Central and RHPAM Server on the same host
   hosts: hybrid
   tasks:
     - include_role:
-        name: rhdm-central
-      vars:
-        jboss_socket_binding_port_offset_number: 0
+        name: rhpam-central
     - include_role:
-        name: rhdm-server
+        name: rhpam-server
       vars:
         jboss_socket_binding_port_offset_number: 100
-        org_kie_server_controller: ws://localhost:8080/decision-central/websocket/controller
-        # org_kie_server_http_port: 8180 FIXME ends up as 8280
+        org_kie_server_location: "http://localhost:8180/kie-server/services/rest/server"
   post_tasks:
     - debug:
         msg:
-          - "Run Central: $RHDM_CENTRAL_HOME/bin/standalone.sh -c standalone-full.xml"
-          - "Run Server: $RHDM_SERVER_HOME/bin/standalone.sh -c standalone-full.xml"
-          - "Central URL: http://{{ inventory_hostname }}:8080/decision-central"
+          - "Run Central: $RHPAM_CENTRAL_HOME/bin/standalone.sh -c standalone-full.xml"
+          - "Run Server: $RHPAM_SERVER_HOME/bin/standalone.sh -c standalone-full.xml"
+          - "Central URL: http://{{ inventory_hostname }}:8080/business-central"
           - "Server URL: http://{{ inventory_hostname }}:8180/kie-server/services/rest/server"
       tags: debug

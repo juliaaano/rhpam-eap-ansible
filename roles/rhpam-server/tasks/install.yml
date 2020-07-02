@@ -1,0 +1,32 @@
+---
+- name: download RHPAM Server into {{ rhpam_server_temp }}
+  get_url:
+    url: "{{ rhpam_server_artifact_source }}/{{ rhpam_server_artifact_name }}"
+    dest: "{{ rhpam_server_temp }}/{{ rhpam_server_artifact_name }}"
+
+- name: extract rhpam Server into {{ rhpam_server_temp }}
+  unarchive:
+    src: "{{ rhpam_server_temp }}/{{ rhpam_server_artifact_name }}"
+    dest: "{{ rhpam_server_temp }}"
+    remote_src: yes
+
+- name: copy SecurityPolicy to {{ rhpam_server_home }}/bin/
+  command:
+    cmd: "cp -rf {{ rhpam_server_temp }}/SecurityPolicy/. {{ rhpam_server_home }}/bin/"
+    creates: "{{ rhpam_server_home }}/bin/security.policy"
+
+- name: copy kie-server.war to {{ rhpam_server_home }}/standalone/deployments/
+  command:
+    cmd: "cp -rf {{ rhpam_server_temp }}/kie-server.war {{ rhpam_server_home }}/standalone/deployments/"
+    creates: "{{ rhpam_server_home }}/standalone/deployments/kie-server.war"
+
+- name: check if kie-server.war.deployed exists
+  stat:
+    path: "{{ rhpam_server_home }}/standalone/deployments/kie-server.war.deployed"
+  register: kieserver_deployed
+
+- name: create kie-server.war.dodeploy
+  file:
+    path: "{{ rhpam_server_home }}/standalone/deployments/kie-server.war.dodeploy"
+    state: touch
+  when: not kieserver_deployed.stat.exists
