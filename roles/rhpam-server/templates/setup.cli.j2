@@ -27,5 +27,8 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=org.kie.server.startup.strategy:read-resource
         /system-property=org.kie.server.startup.strategy:add(value={{ org_kie_server_startup_strategy }})
     end-if
+    if (outcome != "success") of /system-property=org.kie.server.bypass.auth.user:read-resource
+        /system-property=org.kie.server.bypass.auth.user:add(value={{ org_kie_server_bypass_auth_user }})
+    end-if
 
 stop-embedded-server
