@@ -4,7 +4,7 @@
     url: "{{ rhpam_central_artifact_source }}/{{ rhpam_central_artifact_name }}"
     dest: "{{ rhpam_central_temp }}/{{ rhpam_central_artifact_name }}"
 
-- name: extract rhpam Central into {{ rhpam_central_temp }}
+- name: extract RHPAM Central into {{ rhpam_central_temp }}
   unarchive:
     src: "{{ rhpam_central_temp }}/{{ rhpam_central_artifact_name }}"
     dest: "{{ rhpam_central_temp }}"

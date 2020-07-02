@@ -45,14 +45,11 @@
   tasks:
     - include_role:
         name: rhpam-central
-      vars:
-        jboss_socket_binding_port_offset_number: 0
     - include_role:
         name: rhpam-server
       vars:
         jboss_socket_binding_port_offset_number: 100
-        org_kie_server_controller: ws://localhost:8080/business-central/websocket/controller
-        # org_kie_server_http_port: 8180 FIXME ends up as 8280
+        org_kie_server_location: "http://localhost:8180/kie-server/services/rest/server"
   post_tasks:
     - debug:
         msg:

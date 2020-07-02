@@ -7,8 +7,8 @@ rhpam_server_root: "{{ ansible_user_dir }}/rhpam-server"
 rhpam_server_home: "{{ jboss_eap_home }}" # From role jboss-eap
 rhpam_server_data: "{{ rhpam_server_root }}/data"
 
-rhpam_server_kieserver_usr: kieserver
-rhpam_server_kieserver_pwd: kieserver
+rhpam_server_kieserver_usr: kieserverUser
+rhpam_server_kieserver_pwd: password
 
 org_kie_server_id: kieserver-default
 org_kie_server_mode: development

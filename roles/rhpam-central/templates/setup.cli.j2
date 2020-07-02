@@ -39,5 +39,8 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=kie.maven.settings.custom:read-resource
         /system-property=kie.maven.settings.custom:add(value="{{ kie_maven_settings_custom }}")
     end-if
+    if (outcome != "success") of /subsystem=security/security-domain=other/authentication=classic/login-module=org.kie.security.jaas.KieLoginModule/:query
+        /subsystem=security/security-domain=other/authentication=classic/login-module=org.kie.security.jaas.KieLoginModule:add(code="org.kie.security.jaas.KieLoginModule",flag="optional",module="deployment.business-central.war")
+    end-if
 
 stop-embedded-server
