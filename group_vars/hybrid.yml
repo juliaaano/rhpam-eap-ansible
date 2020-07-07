@@ -3,7 +3,7 @@
 
 # kie-server role user needs to match logged in user in BC, otherwise it cannot access process data.
 rhpam_central_admin_usr: adminUser
-rhpam_server_kieserver_usr: "{{ rhpam_central_admin_usr }}"
+rhpam_server_api_usr: "{{ rhpam_central_admin_usr }}"
 
 rhpam_central_controller_usr: controllerUsr
 rhpam_central_controller_pwd: controllerPwd

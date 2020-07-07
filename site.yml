@@ -35,8 +35,8 @@
         msg:
           - "Installation dir: {{ rhpam_server_root }}"
           - "URL: http://{{ inventory_hostname }}:{{ org_kie_server_http_port }}/kie-server/services/rest/server"
-          - "User kieserver username: {{ rhpam_server_kieserver_usr }}"
-          - "User kieserver password: {{ rhpam_server_kieserver_pwd }}"
+          - "KIE Server username: {{ rhpam_server_api_usr }}"
+          - "KIE Server password: {{ rhpam_server_api_pwd }}"
 
 # 3. RHPAM Central and Server on the same host.
 #    The KIE Server is in managed mode and automatically connected to Central's contoller instance.
