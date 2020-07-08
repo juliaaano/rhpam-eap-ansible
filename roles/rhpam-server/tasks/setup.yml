@@ -4,11 +4,9 @@
     path: "{{ rhpam_server_data }}"
     state: directory
 
-- name: add kieserver api user {{ rhpam_server_api_usr }}
-  command: "{{ rhpam_server_home }}/bin/add-user.sh -a --user {{ rhpam_server_api_usr }} --password {{ rhpam_server_api_pwd }} --role {{ rhpam_server_api_roles }}"
-
-- name: add human user {{ rhpam_server_human_usr }}
-  command: "{{ rhpam_server_home }}/bin/add-user.sh -a --user {{ rhpam_server_human_usr }} --password {{ rhpam_server_human_pwd }} --role {{ rhpam_server_human_roles }}"
+- name: add users and roles
+  command: "{{ rhpam_server_home }}/bin/add-user.sh -a --user {{ item.user }} --password {{ item.password }} --role {{ item.roles }}"
+  loop: "{{ rhpam_server_users }}"
 
 - name: create {{ kie_maven_settings_custom }}
   template:
