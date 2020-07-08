@@ -13,7 +13,8 @@ rhpam_server_api_roles: kie-server
 
 rhpam_server_human_usr: shadowman
 rhpam_server_human_pwd: password
-rhpam_server_human_roles: kie-server,redhat
+rhpam_server_human_roles: redhat
+# rhpam_server_human_roles: kie-server,redhat # if bypass is false
 
 org_kie_server_id: kieserver-default
 org_kie_server_mode: development
@@ -23,6 +24,7 @@ org_kie_server_location: "http://{{ inventory_hostname }}:{{ org_kie_server_http
 
 org_kie_server_mgmt_api_disabled: "false"
 org_kie_server_startup_strategy: "ControllerBasedStartupStrategy"
-org_kie_server_bypass_auth_user: "false"
+org_kie_server_bypass_auth_user: "true"
+org_jbpm_ht_callback: "props"
 
 rhpam_server_maven_jboss_enterprise_repo_url: https://maven.repository.redhat.com/ga/

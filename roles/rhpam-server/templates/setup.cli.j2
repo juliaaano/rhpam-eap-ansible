@@ -27,8 +27,16 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=org.kie.server.startup.strategy:read-resource
         /system-property=org.kie.server.startup.strategy:add(value={{ org_kie_server_startup_strategy }})
     end-if
+    {% if org_kie_server_bypass_auth_user == "true" %}
     if (outcome != "success") of /system-property=org.kie.server.bypass.auth.user:read-resource
         /system-property=org.kie.server.bypass.auth.user:add(value={{ org_kie_server_bypass_auth_user }})
     end-if
+    if (outcome != "success") of /system-property=org.jbpm.ht.callback:read-resource
+        /system-property=org.jbpm.ht.callback:add(value={{ org_jbpm_ht_callback }})
+    end-if
+    if (outcome != "success") of /system-property=jbpm.user.group.mapping:read-resource
+        /system-property=jbpm.user.group.mapping:add(value={{ jbpm_user_group_mapping }})
+    end-if
+    {% endif %}
 
 stop-embedded-server
