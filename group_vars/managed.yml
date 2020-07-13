@@ -2,7 +2,16 @@
 # Variables here are applicable to 'managed' host group.
 
 # kie-server role user needs to match logged in user in BC, otherwise it cannot access process data.
-rhpam_server_api_usr: adminUser
+rhpam_server_users:
+  - user: apiUser
+    password: password
+    roles: kie-server
+  - user: adminUser
+    password: password
+    roles: kie-server,Administrators
+  - user: shadowman
+    password: password
+    roles: redhat
 
 # Enable MANAGED mode for the KIE Server.
 org_kie_server_controller: ws://controller-host:8080/business-central/websocket/controller
