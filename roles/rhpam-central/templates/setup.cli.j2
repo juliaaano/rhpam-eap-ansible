@@ -33,6 +33,9 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=org.uberfire.nio.git.ssh.cert.dir:read-resource
         /system-property=org.uberfire.nio.git.ssh.cert.dir:add(value="{{ org_uberfire_nio_git_ssh_cert_dir }}")
     end-if
+    if (outcome != "success") of /system-property=appformer.ssh.keys.storage.folder:read-resource
+        /system-property=appformer.ssh.keys.storage.folder:add(value="{{ appformer_ssh_keys_storage_folder }}")
+    end-if
     if (outcome != "success") of /system-property=org.guvnor.m2repo.dir:read-resource
         /system-property=org.guvnor.m2repo.dir:add(value="{{ org_guvnor_m2repo_dir }}")
     end-if

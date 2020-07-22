@@ -1,4 +1,4 @@
-# Red Hat Process Automation Manager Ansible Installation
+# Red Hat PAM Ansible Installation
 
 Ansible playbook to install Process Automation Manager in multiple flavours.
 
