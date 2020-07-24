@@ -36,6 +36,9 @@ embed-server --server-config=standalone-full.xml
     if (outcome != "success") of /system-property=appformer.ssh.keys.storage.folder:read-resource
         /system-property=appformer.ssh.keys.storage.folder:add(value="{{ appformer_ssh_keys_storage_folder }}")
     end-if
+    if (outcome != "success") of /system-property=org.appformer.m2repo.url:read-resource
+        /system-property=org.appformer.m2repo.url:add(value="{{ org_appformer_m2repo_url }}")
+    end-if
     if (outcome != "success") of /system-property=org.guvnor.m2repo.dir:read-resource
         /system-property=org.guvnor.m2repo.dir:add(value="{{ org_guvnor_m2repo_dir }}")
     end-if
