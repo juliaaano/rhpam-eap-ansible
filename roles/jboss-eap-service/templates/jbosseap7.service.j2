@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=forking
 ExecStart={{ jboss_eap_svc_home }}/bin/init.d/jboss-eap-rhel.sh start
-ExecStop={{ jboss_eap_svc_home }}bin/init.d/jboss-eap-rhel.sh stop
+ExecStop={{ jboss_eap_svc_home }}/bin/init.d/jboss-eap-rhel.sh stop
 
 [Install]
 WantedBy=multi-user.target
