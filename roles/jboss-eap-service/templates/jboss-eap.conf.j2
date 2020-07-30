@@ -3,4 +3,6 @@ JBOSS_USER={{ jboss_eap_svc_user }}
 JBOSS_CONFIG=standalone-full.xml
 JBOSS_OPTS=""
 
+STARTUP_WAIT=90
+
 export JAVA_OPTS="{{ jboss_eap_svc_java_opts | default('') }}"
