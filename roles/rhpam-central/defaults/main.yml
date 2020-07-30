@@ -1,6 +1,6 @@
 ---
 rhpam_central_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaaano/rhpam
-rhpam_central_artifact_name: rhpam-7.7.1-business-central-eap7-deployable.zip
+rhpam_central_artifact_name: rhpam-7.8.0-business-central-eap7-deployable.zip
 
 rhpam_central_temp: /tmp/rhpam-central
 rhpam_central_root: "{{ ansible_user_dir }}/rhpam-central"
