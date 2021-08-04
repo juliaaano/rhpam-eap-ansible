@@ -3,6 +3,13 @@ jboss_eap_artifact_source: https://s3-ap-southeast-2.amazonaws.com/public.juliaa
 jboss_eap_artifact_name: jboss-eap-7.3.0.zip
 jboss_eap_patch_artifact_names:
   - jboss-eap-7.3.1-patch.zip
+  - jboss-eap-7.3.2-patch.zip
+  - jboss-eap-7.3.3-patch.zip
+  - jboss-eap-7.3.4-patch.zip
+  - jboss-eap-7.3.5-patch.zip
+  - jboss-eap-7.3.6-patch.zip
+  - jboss-eap-7.3.7-patch.zip
+  - jboss-eap-7.3.8-patch.zip
 jboss_eap_patch_artifact_pattern: "*-patch.zip"
 
 # The jboss_eap_path needs to match the directory inside the distro zip file.
